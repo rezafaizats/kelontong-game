@@ -2,10 +2,13 @@ namespace Kelontong.Calculator
 {
     public enum CalculatorOperation
     {
+        NONE,
         PLUS,
         MINUS,
         MULTIPLY,
-        DEVIDE,
+        DIVIDE,
+        CLEAR,
+        DELETE,
         EQUALS
     }
 }

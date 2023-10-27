@@ -14,7 +14,7 @@ namespace Kelontong.Player
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GlobalEvents.Fire(new DisplayNumberCalculatorEvent(){ number = Random.Range(0, 100)});
+                
             }
 
             if (Input.GetKeyDown(KeyCode.P))
