@@ -12,6 +12,7 @@ namespace Arr.MiscModules
         protected override async Task OnLoad()
         {
             gameObject = Resources.Load<GameObject>("EventSystem");
+            Object.Instantiate(gameObject);
         }
 
         protected override async Task OnUnload()
