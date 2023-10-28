@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7694ded4a014b07aa238a5c1db1a2da, type: 3}
-  m_Name: TestPrefabs1
+  m_Name: PrefabsRegistry
   m_EditorClassIdentifier: 
   entries:
   - id: player
-    prefab: {fileID: 4804246142154852087, guid: 01d0055bd18ff494ea482adcd9ad9f31, type: 3}
+    prefab: {fileID: 7907748630859896082, guid: 67ca89e61ef886a4eaa75b0700c39eff, type: 3}
+  - id: Camera
+    prefab: {fileID: 5169346824123639519, guid: b86fabd83b9b7014c86a3996a11099a6, type: 3}
