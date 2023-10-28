@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Threading.Tasks;
 using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
@@ -11,11 +12,12 @@ using UnityEngine;
 
 namespace Kelontong.Modules.ViewModules
 {
-    public class CalculatorViewModule : ViewModule<CalculatorView>, IEventListener<OnCalculatorPressedEvent>
+    public class CalculatorViewModule : ViewModule<CalculatorView>, IEventListener<OnCalculatorPressedEvent>, IEventListener<OnCalculatorSubmitPriceEvent>
     {
-        private int currentNumber;
+        private int currentNumber = 0;
         private int lastNumber;
         private CalculatorOperation currentOperation = CalculatorOperation.NONE;
+        
 
         protected override async Task OnLoad()
         {
@@ -38,6 +40,7 @@ namespace Kelontong.Modules.ViewModules
                     case CalculatorOperation.MINUS:
                     case CalculatorOperation.MULTIPLY:
                     case CalculatorOperation.DIVIDE:
+                        
                         if (currentOperation == CalculatorOperation.NONE)
                         {
                             lastNumber = currentNumber;
@@ -45,10 +48,10 @@ namespace Kelontong.Modules.ViewModules
                         }
                         else
                         {
-                            lastNumber = Operate(lastNumber, currentNumber, calculatorOperationButton.Operation);
-                            currentNumber = 0;
+                            lastNumber = Operate(lastNumber, currentNumber, currentOperation);
                             view.Display(lastNumber);
-                        } 
+                            currentNumber = 0;
+                        }
                         currentOperation = calculatorOperationButton.Operation;
                         break;
                     case CalculatorOperation.CLEAR:
@@ -73,9 +76,9 @@ namespace Kelontong.Modules.ViewModules
                         throw new ArgumentOutOfRangeException();
                 }
             }
-
+        
         }
-
+        
         public int Operate(int firstNumber, int secondNumber, CalculatorOperation operation)
         {
             switch (operation)
@@ -88,74 +91,15 @@ namespace Kelontong.Modules.ViewModules
                     return firstNumber * secondNumber;
                 case CalculatorOperation.DIVIDE:
                     return firstNumber / secondNumber;
-
+        
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        // public void OnEvent(OnCalculatorPressedEvent data)
-        // {
-        //     if (data.pressedButton is CalculatorNumberButton calculatorNumberButton)
-        //     {
-        //         currentNumber = currentNumber * 10 + calculatorNumberButton.Number;
-        //         view.Display(currentNumber);
-        //
-        //     }else if (data.pressedButton is CalculatorOperationButton calculatorOperationButton)
-        //     {
-        //         
-        //         switch (calculatorOperationButton.Operation)
-        //         {
-        //             
-        //             case CalculatorOperation.PLUS:
-        //                 lastNumber = lastNumber + currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.MINUS:
-        //                 lastNumber = lastNumber - currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.MULTIPLY:
-        //                 lastNumber = lastNumber * currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.DIVIDE:
-        //                 lastNumber = lastNumber / currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.CLEAR:
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.DELETE:
-        //                 currentNumber = Mathf.FloorToInt(currentNumber / 10f);
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.EQUALS:
-        //                 view.Display(lastNumber);
-        //                 break;
-        //         }
-        //     }
-        //     
-        //     
-        // }
-
-
-
+        public void OnEvent(OnCalculatorSubmitPriceEvent data)
+        {
+            GlobalEvents.Fire(new OnSubmitPriceEvent(currentNumber));
+        }
     }
 }
