@@ -19,6 +19,8 @@ namespace Kelontong.Modules.Ink
         IEventListener<ChooseStoryChoiceEvent>,
         IQueryProvider<StoryValueQueryResult, StoryValueQuery>
     {
+        private const string EVENT = "event";
+        
         private Story story;
         private bool storyLoaded = false;
         private bool shouldFireEndStory = false;
@@ -97,6 +99,20 @@ namespace Kelontong.Modules.Ink
             }
 
             var nextLine = story.Continue();
+
+            foreach (var tag in story.currentTags)
+            {
+                if (!tag.StartsWith(EVENT)) continue;
+                var split = tag.Split(' ');
+                
+                //event needs name and at least 1 arg
+                if (split.Length <= 3) continue;
+                var name = split[1];
+                var args = new string[split.Length - 2];
+                Array.Copy(split, 2, args, 0, split.Length);
+                GlobalEvents.Fire(new OnStoryTriggerEvent<string[]>(name, args));
+            }
+            
             var storyLine = new StoryLine(nextLine, story.currentTags);
             GlobalEvents.Fire(new OnStoryLineEvent(storyLine));
 
