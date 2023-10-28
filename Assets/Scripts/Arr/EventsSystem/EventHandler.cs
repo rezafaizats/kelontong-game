@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Arr.EventsSystem
@@ -7,7 +8,7 @@ namespace Arr.EventsSystem
     public class EventHandler
     {
         private readonly Dictionary<Type, List<Delegate>> eventListeners = new();
-
+        
         public void Register<TParam>(IEventListener<TParam> listener) where TParam : struct
         {
             var eventType = typeof(TParam);
@@ -22,8 +23,7 @@ namespace Arr.EventsSystem
             foreach (var listenerDelegate in listener)
                 ((Action<TParam>) listenerDelegate)?.Invoke(data);
         }
-        
-        
+
         public void Unregister<TParam>(IEventListener<TParam> listener) where TParam : struct
         {
             var eventType = typeof(TParam);
