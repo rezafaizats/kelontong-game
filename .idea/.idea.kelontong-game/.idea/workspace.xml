@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="87873f79-2a0c-4b3f-ac38-2948d303eaf0" name="Changes" comment="" />
+    <list default="true" id="87873f79-2a0c-4b3f-ac38-2948d303eaf0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/FUNCTIONS.ink" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/FUNCTIONS.ink.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/VARS.ink" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/VARS.ink.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/main.ink" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/main.ink.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/main.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Data/Ink/main.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Feel/FeelDemos/FeelTemplatesDemo.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/OlderVersions/v1.7/NiceVibrations-v-1-7.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/OlderVersions/v2.0.1/NiceVibrations-v-2-0-1.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/OlderVersions/v3.9/NiceVibrations-v-3-9-0.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/AddMoneyToShopEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/AddMoneyToShopEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/AddProductToShopEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/AddProductToShopEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryMoneyFromShop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryMoneyFromShop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryProductFromShop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryProductFromShop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryProductFromShopResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/QueryProductFromShopResult.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/RemoveMoneyFromShopEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/RemoveMoneyFromShopEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/RemoveProductFromShopEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/ShopInventory/RemoveProductFromShopEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/PlayerInventoryModule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/PlayerInventoryModule.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/ShopInventoryModule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/ShopInventoryModule.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Products.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Products/ProductDatabase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Products/ProductDatabase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/StoryData/StoryEventAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/StoryData/StoryEventAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/StoryData/StoryEventMetadata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/StoryData/StoryEventMetadata.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/Ink/testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Ink/testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/Story/OnStoryTriggerEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Events/Story/OnStoryTriggerEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/Ink/InkModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/Modules/Ink/InkModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Kelontong/TEMP_ARYA/InkTestingModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Kelontong/TEMP_ARYA/InkTestingModule.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Kelontong/TEMP_ARYA/TestPlayerModuleLoader.cs" root0="FORCE_HIGHLIGHTING" />
@@ -14,27 +64,36 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2XLZZKXZMDh19fWfGpyrhpI0qYj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Arkan Zahrawaani\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Arkan Zahrawaani\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Arkan Zahrawaani\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Arya Rakha\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Arya Rakha\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Arya Rakha\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Unity.exe" />
