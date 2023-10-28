@@ -2,9 +2,9 @@ namespace Kelontong.Events
 {
     struct OnSubmitMinyakTanah
     {
-        public int totalAmount;
+        public float totalAmount;
 
-        public OnSubmitMinyakTanah(int total) {
+        public OnSubmitMinyakTanah(float total) {
             totalAmount = total;
         }
         

@@ -1,15 +1,16 @@
 
 
+using Kelontong.Views;
 using UnityEngine.UI;
 
 namespace Kelontong.Events.Minigames
 {
     struct OnMinyakTanahPressedEvent
     {
-        public Button fillButton;
+        public float fillRate;
 
-        public OnMinyakTanahPressedEvent(Button fillButton) {
-            this.fillButton = fillButton;
+        public OnMinyakTanahPressedEvent(float rate) {
+            fillRate = rate;
         }
     }
 }
