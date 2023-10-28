@@ -29,6 +29,8 @@ namespace Kelontong.Modules.ViewModules
         {
             if (data.pressedButton is CalculatorNumberButton calculatorNumberButton)
             {
+                string numberString = currentNumber.ToString();
+                if (numberString.Length >= 7)return;
                 currentNumber = currentNumber * 10 + calculatorNumberButton.Number;
                 view.Display(currentNumber);
                 
