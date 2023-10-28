@@ -14,11 +14,13 @@ namespace Kelontong.UI.Minigames
 
         public override void OnPointerDown(PointerEventData eventData)
         {   
+            base.OnPointerDown(eventData);
             GlobalEvents.Fire(new OnMinyakTanahPressedEvent(fillRate));
         }
 
         public override void OnPointerUp(PointerEventData eventData)
         {
+            base.OnPointerUp(eventData);
             GlobalEvents.Fire(new OnMinyakTanahReleasedEvent());
         }
 
