@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
+using Kelontong.Events;
 using Kelontong.Events.Minigames;
 using Kelontong.UI.Minigames;
 using TMPro;
@@ -14,25 +16,27 @@ namespace Kelontong.Views
         [SerializeField] private Image oilImage;
         [SerializeField] private MinyakMinigameButton fillButton;
         [SerializeField] private Button submitButton;
-        
-        [SerializeField] private float fillSpeed;
 
         public void FillBeaker(float fillRate) {
-            oilImage.fillAmount = fillSpeed * fillRate;
+            Debug.Log("Filling oil at " + fillRate);
+            oilImage.fillAmount = fillRate;
         }
 
-        protected override void OnOpen()
+        protected override Task OnLoad()
         {
-            fillButton.fillRate = fillSpeed;
+            fillButton.fillRate = 0.001f;
+            Debug.Log("Fill rate is " + fillButton.fillRate);
             oilImage.fillAmount = 0f;
-            fillButton.onClick.AddListener( () => FillBeaker(1f) );
+            submitButton.onClick.AddListener(() => GlobalEvents.Fire(new OnMinyakTanahSubmitEvent()));
+            return base.OnLoad();
         }
 
-        protected override void OnClose()
+        protected override Task OnUnload()
         {
             oilImage.fillAmount = 0f;
             fillButton.onClick.RemoveAllListeners();
+            submitButton.onClick.RemoveAllListeners();
+            return base.OnUnload();
         }
-
     }
 }

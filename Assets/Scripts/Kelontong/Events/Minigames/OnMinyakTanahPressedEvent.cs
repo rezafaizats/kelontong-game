@@ -1,8 +1,4 @@
 
-
-using Kelontong.Views;
-using UnityEngine.UI;
-
 namespace Kelontong.Events.Minigames
 {
     struct OnMinyakTanahPressedEvent

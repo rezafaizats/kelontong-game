@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7694ded4a014b07aa238a5c1db1a2da, type: 3}
   m_Name: MinigameRegistry
   m_EditorClassIdentifier: 
-  entries:
-  - id: MinyakTanah
-    prefab: {fileID: 0}
+  entries: []

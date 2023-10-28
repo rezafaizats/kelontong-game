@@ -120,8 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oilImage: {fileID: 5600346607849027208}
   fillButton: {fileID: 8754666258455583389}
-  submitButton: {fileID: 0}
-  fillSpeed: 0.01
+  submitButton: {fileID: 8746410575338101176}
 --- !u!1 &4542637951793311328
 GameObject:
   m_ObjectHideFlags: 0

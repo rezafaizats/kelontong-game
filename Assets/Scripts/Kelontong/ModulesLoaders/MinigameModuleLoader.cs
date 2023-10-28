@@ -10,6 +10,6 @@ public class MinigameModuleLoader : ModulesLoader
     protected override BaseModule[] Modules => new BaseModule[]
     {
         new UnityEventSystemModule(),
-        new MinyakTanahViewModule()
+        new TelurViewModule()
     };
 }

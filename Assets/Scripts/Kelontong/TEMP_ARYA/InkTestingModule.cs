@@ -13,6 +13,12 @@ namespace Kelontong.TEMP_ARYA
         IEventListener<OnStoryLineEvent>,
         IEventListener<OnStoryEndEvent>
     {
+        [StoryEvent]
+        public static int TestQuery(float test)
+        {
+            return Mathf.FloorToInt(test + 3);
+        }
+        
         protected override async Task OnLoad()
         {
             GlobalEvents.Fire(new LoadStoryEvent("testing"));
