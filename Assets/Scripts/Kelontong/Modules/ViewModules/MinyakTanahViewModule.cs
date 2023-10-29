@@ -5,6 +5,7 @@ using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
 using Kelontong.Events;
 using Kelontong.Events.Minigames;
+using Kelontong.Events.ShopInventory;
 using Kelontong.Views;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Kelontong.Minigames
 {
     class MinyakTanahViewModule : ViewModule<MinyakTanahView>, IEventListener<OnMinyakTanahPressedEvent>, IEventListener<OnMinyakTanahReleasedEvent>, IEventListener<OnMinyakTanahSubmitEvent>
     {
+        private const string productId = "minyakTanah";
         public float maxMinyakAmount = 1f;
         private float minyakAmount = 0f;
         private float fillRate = 0f;
@@ -31,6 +33,14 @@ namespace Kelontong.Minigames
         {
             UnityEvents.onUpdate -= Update;
             return base.OnUnload();
+        }
+
+        protected override void OnOpen()
+        {
+            var queryResult = GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(new QueryProductFromShop(productId));
+            if(!queryResult.found) throw new Exception("Product doesn't exist!");
+            maxMinyakAmount = queryResult.quantity;
+            base.OnOpen();
         }
 
         private void Update() {
@@ -54,7 +64,8 @@ namespace Kelontong.Minigames
 
         public void OnEvent(OnMinyakTanahSubmitEvent data)
         {
-            GlobalEvents.Fire(new OnSubmitMinyakTanah(minyakAmount));
+            GlobalEvents.Fire(new AddProductToPlayerEvent(productId, minyakAmount));
+            GlobalEvents.Fire(new RemoveProductFromShopEvent(productId, minyakAmount));
         }
     }
 }

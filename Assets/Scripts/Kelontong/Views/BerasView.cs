@@ -22,9 +22,9 @@ namespace Kelontong.Views
             clearButton.onClick.AddListener(ClearRiceAmount);
         }
 
-        public void DisplayWeight(int angka)
+        public void DisplayWeight(float angka)
         {
-            weightText.text = angka.ToString();
+            weightText.text = angka.ToString("F0");
         }
 
         public void ClearRiceAmount()
