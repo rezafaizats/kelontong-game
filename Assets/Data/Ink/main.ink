@@ -23,7 +23,8 @@ INCLUDE Endings.ink
 -> day5Customer.random
 -> endingChoice
 === endingChoice ===
-VAR playerMoney = {GetPlayerMoney()}
+VAR playerMoney = 0
+~playerMoney = GetPlayerMoney
 VAR moneyTarget = 100000
 VAR requestText = ""
 {asepEnding == true: ->endings.asepEndings}
