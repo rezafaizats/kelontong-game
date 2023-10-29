@@ -42,6 +42,7 @@ namespace Kelontong.Views
                 Debug.Log("Egg spawned!");
             }
         }
+        
         public void Submit() {
             GlobalEvents.Fire(new OnTelurSubmitEvent());
         }

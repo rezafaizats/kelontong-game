@@ -39,6 +39,7 @@ namespace Kelontong.World
 
             if(queryResult.quantity <= 0) return;
 
+            Debug.Log("Palm oil interact " + queryResult.quantity);
             ProductUtility.TransferFromShopToPlayer(productId, 1);
         }
     }

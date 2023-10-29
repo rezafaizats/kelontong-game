@@ -3,7 +3,6 @@ using Arr.EventsSystem;
 using Arr.ModulesSystem;
 using Kelontong.Events;
 using Kelontong.ScriptableDatabases;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Kelontong.Modules
