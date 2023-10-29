@@ -8,6 +8,7 @@ using Ink.Runtime;
 using Kelontong.Events.Story;
 using Kelontong.ScriptableDatabases;
 using Kelontong.StoryData;
+using UnityEngine;
 
 namespace Kelontong.Modules.Ink
 {
@@ -95,6 +96,8 @@ namespace Kelontong.Modules.Ink
             if (!storyLoaded) throw new Exception("Trying to continue story but story is not loaded!");
             
             var choiceCount = story.currentChoices.Count;
+            
+            Debug.Log($"CONTINUING WITH CHOICE COUNT {choiceCount}, CAN CONTINUE? {story.canContinue}");
 
             if (!story.canContinue)
             {

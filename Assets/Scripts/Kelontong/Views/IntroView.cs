@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
-using Kelontong.Dialogue;
 using Kelontong.Events.Story;
 using Kelontong.StoryData;
 using MoreMountains.Feedbacks;
@@ -14,19 +12,16 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class DialogueView : View
+    public class IntroView : View
     {
         [SerializeField] private MMF_Player dialogueFeedback;
-        [SerializeField] private Button continueButton;
-        [SerializeField] private TextMeshProUGUI lineText, speakerText;
-        [SerializeField] private GameObject choiceGroup, speakerGroup;
-        [SerializeField] private ChoiceElement[] elements;
-        [SerializeField] private float letterPause = 0.1f;
-        
-        private string targetText;
-        private Coroutine typingCoroutine = null;
 
-        public override bool ActiveOnSpawn => false;
+        [SerializeField] private Button continueButton;
+        [SerializeField] private TextMeshProUGUI lineText;
+        [SerializeField] private float letterPause = 0.04f;
+
+        private string targetText;
+        private Coroutine typingCoroutine;
 
         private void Awake()
         {
@@ -39,44 +34,19 @@ namespace Kelontong.Views
             else GlobalEvents.Fire(new ContinueStoryEvent());
         }
 
-        public void DisplayChoices(StoryChoice[] choices)
-        {
-            choiceGroup.SetActive(true);
-
-            for (int i = 0; i < elements.Length; i++)
-            {
-                var element = elements[i];
-                bool active = i < choices.Length;
-                element.gameObject.SetActive(active);
-                if (!active) continue;
-                
-                element.Display(i, choices[i]);
-            }
-        }
-
-        public void HideChoices()
-        {
-            choiceGroup.SetActive(false);
-        }
-
-        public void DisplayLine(StoryLine line)
-        {
-            bool hasSpeaker = line.TryGetSpeaker(out var speaker);
-            speakerGroup.SetActive(hasSpeaker);
-
-            if (hasSpeaker) speakerText.text = $"{speaker}:";
-
-            targetText = line;
-            
-            if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-            typingCoroutine = StartCoroutine(TypeSentence());
-        }
-
-        public void SkipTyping()
+        private void SkipTyping()
         {
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
             lineText.text = targetText;
+        }
+
+        public void DisplayLine(StoryLine line)
+        {
+            targetText = line;
+            
+            if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+            typingCoroutine = StartCoroutine(TypeSentence());
         }
         
         IEnumerator TypeSentence()
@@ -108,6 +78,8 @@ namespace Kelontong.Views
                     }
                 }
             }
+
+            typingCoroutine = null;
         }
     }
 }

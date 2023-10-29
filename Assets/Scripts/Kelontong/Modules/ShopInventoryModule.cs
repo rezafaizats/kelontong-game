@@ -17,7 +17,7 @@ namespace Kelontong.Modules
         IQueryProvider<QueryMoneyFromShop>
     {
         private int money = 0;
-        private Dictionary<string, float> products;
+        private Dictionary<string, float> products = new();
 
         public void OnEvent(AddProductToShopEvent data)
         {

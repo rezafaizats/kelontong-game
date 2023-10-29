@@ -9,7 +9,9 @@ using UnityEngine;
 
 namespace Kelontong.Modules
 {
-    public class WorldLoaderModule : BaseModule, IQueryProvider<QueryPresentedProductResult>
+    public class WorldLoaderModule : BaseModule, 
+        IQueryProvider<QueryPresentedProductResult>,
+        IQueryProvider<QueryQueueStartTransform>
     {
         private World.World world;
 
@@ -24,5 +26,8 @@ namespace Kelontong.Modules
             world = Object.Instantiate(worldPrefab).GetComponent<World.World>();
             return base.OnLoad();
         }
+
+        QueryQueueStartTransform IQueryProvider<QueryQueueStartTransform>.OnQuery()
+            => new() {transform = world.GetCustomerQueuePosition};
     }
 }

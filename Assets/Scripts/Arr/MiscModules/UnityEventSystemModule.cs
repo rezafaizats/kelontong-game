@@ -17,7 +17,7 @@ namespace Arr.MiscModules
 
         protected override async Task OnUnload()
         {
-            if (gameObject) Object.DestroyImmediate(gameObject);
+            
         }
     }
 }
