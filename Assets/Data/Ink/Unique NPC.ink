@@ -14,7 +14,8 @@ Hello my name is Asep, i need  <> #speaker {currentName}
 = asepResponse
 + Sure, but please remember to pay it #speaker You
     ~ StartSale()
-    
+    Thank you brother.i pay you back tomorrow
+    ~ asepDay1 = true
     -> END
 + Sorry we don't do that here 
     -> END
@@ -38,10 +39,16 @@ Hey bro, am sorry but my family didn't send the money yet can i get <> #speaker 
 =asepResponse
 + Alright, i got you
 ~StartSale()
+Thank you, very much you save me bro
+~asepDay2 = true
+{asepDay1 == true:
+~asepEnding = true
+}
 ->END
 +Sorry , not again
 Pleasee
 ++ Alright. just this time not again.
+~StartSale()
 Thank you, very much you save me bro
 ->END
 ++Nope
