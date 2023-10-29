@@ -26,7 +26,7 @@ namespace Kelontong.World
 
         public void HideText()
         {
-            interactText.gameObject.SetActive(true);
+            interactText.gameObject.SetActive(false);
         }
 
         public void Interact()
@@ -34,7 +34,7 @@ namespace Kelontong.World
             var queryResult =
                 GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(
                     new QueryProductFromShop(productId));
-                    
+
             if(!queryResult.found) throw new Exception("Product doesn't exist!");
 
             if(queryResult.quantity <= 0) return;

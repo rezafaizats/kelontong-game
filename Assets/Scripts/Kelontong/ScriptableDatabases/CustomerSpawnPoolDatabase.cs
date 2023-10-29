@@ -1,6 +1,7 @@
 using System;
 using Arr.SDS;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Kelontong.ScriptableDatabases
 {

@@ -8,6 +8,7 @@ using Arr.PrefabRegistrySystem;
 using Kelontong.Customer;
 using Kelontong.Events;
 using Kelontong.Events.CustomerTransactions;
+using Kelontong.ScriptableDatabases;
 using UnityEngine;
 
 namespace Kelontong.Modules
@@ -31,11 +32,16 @@ namespace Kelontong.Modules
 
         private bool shouldSpawn = false;
 
+        private CustomerSpawnPoolData currentData;
+        private Queue<GameObject> specialCustomers;
+
         protected override Task OnLoad()
         {
             var t = GlobalEvents.Query<QueryQueueStartTransform>();
             queueStart = t.transform.position;
             spawnPoint = queueStart + queueDirection * 20f;
+            
+            
             
             UnityEvents.onUpdate += Update;
             return base.OnLoad();
@@ -78,12 +84,13 @@ namespace Kelontong.Modules
 
         private void SpawnCustomer()
         {
-            var prefab = PrefabRegistry.Get("customer");
-            var obj = Object.Instantiate(prefab, spawnPoint, Quaternion.identity);
+            
+            
+            /*var obj = Object.Instantiate(prefab, spawnPoint, Quaternion.identity);
             var controller = obj.GetComponent<CustomerController>();
             SetCustomerPosition(controller, queue.Count, 0f);
 
-            queue.Enqueue(controller);
+            queue.Enqueue(controller);*/
         }
 
         private void SetCustomerPosition(CustomerController controller, int index, float delay)
