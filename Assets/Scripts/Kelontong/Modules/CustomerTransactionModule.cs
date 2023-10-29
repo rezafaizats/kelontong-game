@@ -147,6 +147,9 @@ namespace Kelontong.Modules
         public void OnEvent(OnSubmitPriceEvent data)
         {
             submittedPrice = data.price;
+            
+            var customer = GlobalEvents.Query<CustomerProfile, QueryFrontCustomer>(new ());
+            customer.StartPresentProductDialogue();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Kelontong.Products
 
         public int GetPrice(int day)
         {
-            return priceByDay[Mathf.Clamp(day, 0, priceByDay.Length)];
+            return priceByDay[Mathf.Clamp(day - 1, 0, priceByDay.Length)];
         }
     }
 
