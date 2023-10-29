@@ -16,6 +16,8 @@ namespace Kelontong.Player
 
 
         private IInteractables currentInteractables = null;
+
+        private bool canInteract = true;
         
         
         private void Update()
@@ -24,7 +26,7 @@ namespace Kelontong.Player
             float verticalInput = Input.GetAxis("Vertical");
             playerRigidBody.velocity = new Vector3(horizontalInput * playerMovementSpeed, 0, verticalInput * playerMovementSpeed);
             
-            if (Input.GetKeyDown(KeyCode.E) && currentInteractables != null)
+            if (Input.GetKeyDown(KeyCode.E) && currentInteractables != null && canInteract)
             {
                 currentInteractables.Interact();
             }
@@ -66,6 +68,10 @@ namespace Kelontong.Player
                 interactables.HideText();
                 currentInteractables = interactables;
             }
+        }
+
+        public void SetCanInteract(bool status) {
+            canInteract = status;
         }
     }
 }

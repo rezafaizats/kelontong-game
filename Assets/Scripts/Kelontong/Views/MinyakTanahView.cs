@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    class MinyakTanahView : View
+    class MinyakTanahView : View, IPreventInteraction
     {
         [SerializeField] private Image oilImage;
         [SerializeField] private MinyakMinigameButton fillButton;

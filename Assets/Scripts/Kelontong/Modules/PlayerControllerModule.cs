@@ -2,16 +2,32 @@ using System.Threading.Tasks;
 using Arr.EventsSystem;
 using Arr.ModulesSystem;
 using Arr.PrefabRegistrySystem;
+using Arr.ViewModuleSystem;
 using Kelontong.Events;
 using Kelontong.Player;
+using Kelontong.Views;
 using UnityEngine;
 
 namespace Kelontong.Modules
 {
-    public class PlayerSpawnerModule : BaseModule
+    public class PlayerControllerModule : BaseModule, IEventListener<EventOnViewOpened>, IEventListener<EventOnViewClosed>
     {
         private PlayerController playerController;
-        
+
+        public void OnEvent(EventOnViewOpened data)
+        {
+            if(data.view is IPreventInteraction) {
+                playerController.SetCanInteract(true);
+            }
+        }
+
+        public void OnEvent(EventOnViewClosed data)
+        {
+            if(data.view is IPreventInteraction) {
+                playerController.SetCanInteract(false);
+            }
+        }
+
         protected override Task OnLoad()
         {
             var playerPrefab = PrefabRegistry.Get("player");
