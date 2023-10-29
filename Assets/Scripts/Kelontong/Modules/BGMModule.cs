@@ -10,13 +10,6 @@ namespace Kelontong.Modules
 {
     public class BGMModule : BaseModule, IEventListener<OnBGMEvent>
     {
-        // on load dia akan spawn game object
-        // lalu akan add audiosource to gameobject
-        
-        // on BGM event
-        // akan mengambil BGM-data dari BGM database
-        // akan play BGM seusai dari string dari event nya
-
         private AudioSource audioSource;
 
         protected override async Task OnLoad()
