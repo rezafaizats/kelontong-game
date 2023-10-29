@@ -37,6 +37,7 @@ namespace Kelontong.Modules
         {
             currentRequest = new();
             expectedPricePerUnit = new();
+            GlobalEvents.Fire(new OnRequestUpdated(currentRequest));
         }
 
         public void OnEvent(ConsumeProductsEvent data)
@@ -52,12 +53,14 @@ namespace Kelontong.Modules
 
             currentRequest = new();
             expectedPricePerUnit = new();
+            GlobalEvents.Fire(new OnRequestUpdated(currentRequest));
         }
 
         public void OnEvent(ResetProductRequestEvent data)
         {
             currentRequest = new();
             expectedPricePerUnit = new();
+            GlobalEvents.Fire(new OnRequestUpdated(currentRequest));
         }
 
         public void OnEvent(GenerateProductEvent data)
@@ -75,7 +78,8 @@ namespace Kelontong.Modules
                 currentRequest.Add(req.Key, req.Value);
 
             expectedPricePerUnit = customer.GenerateExpectedPricing();
-            
+            GlobalEvents.Fire(new OnRequestUpdated(currentRequest));
+
             Debug.Log($"GENERATED {currentRequest.Count} REQUEST");
         }
 

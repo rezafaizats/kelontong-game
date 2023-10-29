@@ -9,15 +9,19 @@ namespace Kelontong.Modules
 {
     public interface IDayOfTimeHandle
     {
-        
+        public int Day { get; }
+        public float NormalizedTime { get; }
     }
     
     public class DayOfTimeModule : BaseModule, IDayOfTimeHandle,
         IEventListener<SetDayEvent>, 
         IEventListener<StartDayEvent>, 
         IQueryProvider<QueryDay>,
-        IQueryProvider<TimeHandleQueryResult> 
+        IQueryProvider<TimeHandleQueryResult>
     {
+        public int Day => day;
+        public float NormalizedTime => currentNormalizedTime;
+        
         private int day = 1;
         private float currentNormalizedTime = 0f;
         private float dayMinuteLength = 5f;

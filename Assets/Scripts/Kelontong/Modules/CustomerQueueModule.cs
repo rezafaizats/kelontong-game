@@ -33,15 +33,18 @@ namespace Kelontong.Modules
         private bool shouldSpawn = false;
 
         private CustomerSpawnPoolData currentData;
-        private Queue<GameObject> specialCustomers;
+        private Queue<GameObject> specialCustomers = new();
 
         protected override Task OnLoad()
         {
             var t = GlobalEvents.Query<QueryQueueStartTransform>();
             queueStart = t.transform.position;
             spawnPoint = queueStart + queueDirection * 20f;
-            
-            
+
+            var day = GlobalEvents.Query<QueryDay>().day;
+            currentData = CustomerSpawnPoolDatabase.Get(day);
+            foreach (var spec in currentData.special)
+                specialCustomers.Enqueue(spec);
             
             UnityEvents.onUpdate += Update;
             return base.OnLoad();
@@ -84,13 +87,17 @@ namespace Kelontong.Modules
 
         private void SpawnCustomer()
         {
+            GameObject prefab;
+
+            var roll = Random.Range(0, 100f);
+            var isSpecial = specialCustomers.Count > 0 && roll < currentData.specialChancePercent;
+            prefab = isSpecial ? specialCustomers.Dequeue() : currentData.GetRandomRepeating();
             
-            
-            /*var obj = Object.Instantiate(prefab, spawnPoint, Quaternion.identity);
+            var obj = Object.Instantiate(prefab, spawnPoint, Quaternion.identity);
             var controller = obj.GetComponent<CustomerController>();
             SetCustomerPosition(controller, queue.Count, 0f);
 
-            queue.Enqueue(controller);*/
+            queue.Enqueue(controller);
         }
 
         private void SetCustomerPosition(CustomerController controller, int index, float delay)

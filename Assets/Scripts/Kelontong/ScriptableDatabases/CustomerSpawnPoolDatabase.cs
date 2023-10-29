@@ -13,6 +13,9 @@ namespace Kelontong.ScriptableDatabases
         public GameObject[] special;
         public GameObject[] repeating;
         public int Key => day;
+
+        public GameObject GetRandomRepeating()
+            => repeating[Random.Range(0, repeating.Length)];
     }
     
     [CreateAssetMenu(menuName = "Customer Spawn Pool Database")]

@@ -1,6 +1,6 @@
 namespace Kelontong.Views
 {
-    public interface IPreventInteraction
+    public interface IPreventAction
     {
         
     }

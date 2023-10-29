@@ -16,15 +16,17 @@ namespace Kelontong.Modules
 
         public void OnEvent(EventOnViewOpened data)
         {
-            if(data.view is IPreventInteraction) {
+            if(data.view is IPreventAction) {
                 playerController.SetCanInteract(true);
+                playerController.SetCanMove(false);
             }
         }
 
         public void OnEvent(EventOnViewClosed data)
         {
-            if(data.view is IPreventInteraction) {
+            if(data.view is IPreventAction) {
                 playerController.SetCanInteract(false);
+                playerController.SetCanMove(true);
             }
         }
 

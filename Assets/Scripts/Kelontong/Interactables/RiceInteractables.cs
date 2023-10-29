@@ -23,6 +23,7 @@ namespace Kelontong.Interactables
 
         public void Interact()
         {
+            Debug.Log("WELCOME TO THE RICE FIELDS MADAFAKA");
             View.Open<BerasView>();
         }
         

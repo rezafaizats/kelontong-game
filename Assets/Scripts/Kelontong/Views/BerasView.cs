@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class BerasView : View, IPreventInteraction
+    public class BerasView : View, IPreventAction
     {
         [SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;

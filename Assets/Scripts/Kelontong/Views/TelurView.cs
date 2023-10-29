@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Kelontong.Views
 {
-    class TelurView : View, IPreventInteraction
+    class TelurView : View, IPreventAction
     {
         [SerializeField] private SpriteRenderer scaleNeedle;
         [SerializeField] private Egg eggPrefabs;
@@ -17,6 +17,12 @@ namespace Kelontong.Views
         [SerializeField] private List<Transform> eggSpawnPositions;
 
         public override bool ActiveOnSpawn => false;
+
+        protected override void OnOpen()
+        {
+            Debug.Log("TESTING");
+            base.OnOpen();
+        }
 
         public void DisplayWeight(float weight) {
             var weightToRotation = weight / 1000f;

@@ -19,12 +19,12 @@ namespace Kelontong.Modules.ViewModules
             view.DisplayStock(query.stock);
 
             var money = GlobalEvents.Query<QueryMoneyFromShop>();
-            view.DisplayMoney(money.money);
+            view.DisplayMoney(money.money, money.money);
         }
 
         public void OnEvent(OnMoneyUpdated data)
         {
-            view.DisplayMoney(data.newValue);
+            view.DisplayMoney(data.oldValue, data.newValue);
         }
 
         public void OnEvent(OnRequestUpdated data)

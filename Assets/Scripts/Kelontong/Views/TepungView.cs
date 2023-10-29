@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Kelontong.Views
 {
-    public class TepungView : View, IPreventInteraction
+    public class TepungView : View, IPreventAction
     {[SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Image weightNeedle;

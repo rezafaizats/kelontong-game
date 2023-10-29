@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Arr.ViewModuleSystem;
+using Kelontong.Views;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +23,7 @@ namespace Kelontong.Interactables
 
         public void Interact()
         {
-
+            View.Open<GulaView>();
         }
 
         void Start() {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class GulaView : View, IPreventInteraction
+    public class GulaView : View, IPreventAction
     {[SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Image weightNeedle;

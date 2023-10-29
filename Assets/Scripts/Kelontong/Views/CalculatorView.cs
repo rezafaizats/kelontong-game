@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class CalculatorView : View, IPreventInteraction
+    public class CalculatorView : View, IPreventAction
     {
         [SerializeField] private TextMeshProUGUI calculatorText;
         [SerializeField] private Button submitButton;

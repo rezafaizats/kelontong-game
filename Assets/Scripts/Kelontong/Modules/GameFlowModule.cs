@@ -12,11 +12,14 @@ using UnityEngine;
 
 namespace Kelontong.Modules
 {
-    public class GameFlowModule : BaseModule, IEventListener<OnIntroEndEvent>
+    public class GameFlowModule : BaseModule, 
+        IEventListener<OnIntroEndEvent>,
+        IEventListener<OnDayEndedEvent>
     {
         private ModulesHandler coreHandler, introHandler, gameHandler, outroHandler;
 
         private TaskCompletionSource<bool> introDone = new();
+        private TaskCompletionSource<bool> endDay = new();
 
         private BaseModule[] coreModules = new BaseModule[]
         {
@@ -25,6 +28,7 @@ namespace Kelontong.Modules
             new DayOfTimeModule(),
             new ShopInventoryModule(),
             new FadeViewModule(),
+            new BGMModule()
         };
         
         private BaseModule[] introModules = new BaseModule[]
@@ -46,7 +50,11 @@ namespace Kelontong.Modules
             new CalculatorViewModule(),
             new DialogueViewModule(),
             new MinyakTanahViewModule(),
-            new TelurViewModule()
+            new TelurViewModule(),
+            new BerasViewModule(),
+            new GulaViewModule(),
+            new TepungViewModule()
+            
         };
         
         private BaseModule[] outroModules = new BaseModule[]
@@ -64,20 +72,28 @@ namespace Kelontong.Modules
             Debug.Log("STARTING GAME FLOW");
             
             await coreHandler.Start();
-            await introHandler.Start();
 
-            await introDone.Task;
-            FadeViewModule.FadeIn(3f);
+            for (int i = 0; i < 5; i++)
+            {
+                introDone = new();
+                await introHandler.Start();
+                await introDone.Task;
+                FadeViewModule.FadeIn(3f);
 
-            View.Close<IntroView>();
+                View.Close<IntroView>();
 
-            FadeViewModule.FadeOut(0.5f);
+                FadeViewModule.FadeOut(0.5f);
 
-            await introHandler.Stop();
-            await Task.Delay(500);
-            await gameHandler.Start();
-            FadeViewModule.FadeIn(4f);
-            GlobalEvents.Fire(new StartDayEvent());
+                await introHandler.Stop();
+                endDay = new();
+                
+                await Task.Delay(500);
+                await gameHandler.Start();
+                FadeViewModule.FadeIn(4f);
+                GlobalEvents.Fire(new StartDayEvent());
+
+                await endDay.Task;
+            }
         }
 
         protected override async Task OnUnload()
@@ -91,6 +107,11 @@ namespace Kelontong.Modules
         public void OnEvent(OnIntroEndEvent data)
         {
             introDone.SetResult(true);
+        }
+
+        public void OnEvent(OnDayEndedEvent data)
+        {
+            endDay.SetResult(true);
         }
     }
 }

@@ -18,18 +18,29 @@ namespace Kelontong.Player
         private IInteractables currentInteractables = null;
 
         private bool canInteract = true;
+        private bool canMove = true;
         
         
         private void Update()
         {
+            
+            
+            if (Input.GetKeyDown(KeyCode.E) && currentInteractables != null)
+            {
+                Debug.Log($"INTERACT ATTEMPT, can interact? {canInteract}");
+                if (!canInteract) Debug.Log("TRYING TO INTERACT WHILE NOT BEING ABLE TO MOVE");
+                else currentInteractables.Interact();
+            }
+
+            if (!canMove)
+            {
+                playerRigidBody.velocity = Vector3.zero;
+                return;
+            }
+            
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
             playerRigidBody.velocity = new Vector3(horizontalInput * playerMovementSpeed, 0, verticalInput * playerMovementSpeed);
-            
-            if (Input.GetKeyDown(KeyCode.E) && currentInteractables != null && canInteract)
-            {
-                currentInteractables.Interact();
-            }
 
             // if (Input.GetKeyDown(KeyCode.P))
             // {
@@ -53,6 +64,7 @@ namespace Kelontong.Player
             if(other.transform.TryGetComponent<IInteractables>(out var interactables)) {
                 interactables.DisplayText();
                 currentInteractables = interactables;
+                Debug.Log($"GOT INTERACTABLE {other.name}");
             }
         }
 
@@ -72,6 +84,10 @@ namespace Kelontong.Player
 
         public void SetCanInteract(bool status) {
             canInteract = status;
+        }
+        
+        public void SetCanMove(bool status) {
+            canMove = status;
         }
     }
 }
