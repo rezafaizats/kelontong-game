@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Arr.EventsSystem;
+using Kelontong.Events;
 using Kelontong.Events.Story;
 using Kelontong.Interactables;
+using Kelontong.Products;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -54,7 +56,17 @@ namespace Kelontong.Customer
 
         public Dictionary<string, int> GenerateExpectedPricing()
         {
-            throw new NotImplementedException();
+            var dict = new Dictionary<string, int>();
+
+            foreach (var product in productProfiles)
+            {
+                var data = ProductDatabase.Get(product.id);
+                var day = GlobalEvents.Query<QueryDay>().day;
+                var value = Mathf.RoundToInt(data.GetPrice(day) * product.normalizedMarketValueBias);
+                dict[product.id] = value;
+            }
+
+            return dict;
         }
 
 
