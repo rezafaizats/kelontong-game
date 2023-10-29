@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Kelontong.Views
 {
-    class TelurView : View
+    class TelurView : View, IPreventInteraction
     {
         [SerializeField] private SpriteRenderer scaleNeedle;
         [SerializeField] private Egg eggPrefabs;
