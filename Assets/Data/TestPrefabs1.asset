@@ -15,3 +15,5 @@ MonoBehaviour:
   entries:
   - id: player
     prefab: {fileID: 4804246142154852087, guid: 01d0055bd18ff494ea482adcd9ad9f31, type: 3}
+  - id: customer
+    prefab: {fileID: 7575028655838152925, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}

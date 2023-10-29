@@ -93,9 +93,17 @@ namespace Kelontong.Modules.Ink
         private void Continue()
         {
             if (!storyLoaded) throw new Exception("Trying to continue story but story is not loaded!");
+            
+            var choiceCount = story.currentChoices.Count;
 
             if (!story.canContinue)
             {
+                if (choiceCount > 0)
+                {
+                    CheckForChoices();
+                    return;
+                }
+                
                 if (!shouldFireEndStory) return;
                 
                 GlobalEvents.Fire(new OnStoryEndEvent());
@@ -107,20 +115,25 @@ namespace Kelontong.Modules.Ink
             
             var storyLine = new StoryLine(nextLine, story.currentTags);
             GlobalEvents.Fire(new OnStoryLineEvent(storyLine));
+            CheckForChoices();
 
-            var count = story.currentChoices.Count;
-            if (count > 0)
+            shouldFireEndStory = true;
+        }
+
+        private void CheckForChoices()
+        {
+            var choiceCount = story.currentChoices.Count;
+
+            if (choiceCount > 0)
             {
-                var nextChoices = new StoryChoice[count];
-                for (int i = 0; i < count; i++)
+                var nextChoices = new StoryChoice[choiceCount];
+                for (int i = 0; i < choiceCount; i++)
                 {
                     var choice = story.currentChoices[i];
                     nextChoices[i] = new StoryChoice(choice.text, choice.tags);
                 }
                 GlobalEvents.Fire(new OnStoryChoiceEvent(nextChoices));
             }
-
-            shouldFireEndStory = true;
         }
 
         public void OnEvent(ChooseStoryChoiceEvent data)

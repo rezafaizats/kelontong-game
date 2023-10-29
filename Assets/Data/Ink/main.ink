@@ -1,7 +1,7 @@
 INCLUDE VARS.ink
 INCLUDE FUNCTIONS.ink
 
--> day1Customer.presentProduct
+-> day1Customer.random
 
 VAR requestText = ""
 

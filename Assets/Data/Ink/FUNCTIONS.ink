@@ -1,22 +1,24 @@
-EXTERNAL AddMoney(amount)
+
 EXTERNAL StartSale()
 EXTERNAL RejectSale()
 EXTERNAL ConsumeProducts()
-EXTERNAL GetPrice()
 EXTERNAL GenerateProductRequest(count)
 EXTERNAL ResetProductRequest()
 EXTERNAL GetProductRequestAmount(index)
 EXTERNAL GetProductRequestName(index)
 EXTERNAL GetFulfillmentScore()
 
+EXTERNAL AddMoney(amount)
+EXTERNAL GetPrice()
+
 === function GetFulfillmentScore() ===
 ~ return RANDOM(-100, 100) / 100.0
 
-=== function GetProductAmount(index) ===
+=== function GetProductRequestAmount(index) ===
 ~ return RANDOM(1, 5)
 
-=== function GetProductName(index) ===
-~ return products(index + 1)
+=== function GetProductRequestName(index) ===
+~ return "gula"
 
 === function GenerateProductRequest(count) ===
 #will generate {count} product
@@ -51,23 +53,23 @@ EXTERNAL GetFulfillmentScore()
 
 === function getLabel(product) ===
 {
-    - product == minyakGoreng: ~ return "packs"
-    - product == minyakTanah: ~ return "liter"
-    - product == tepung: ~ return "kilogram"
-    - product == telur: ~ return "kilogram"
-    - product == beras: ~ return "kilogram"
-    - product == gula: ~ return "kilogram"
+    - product == "minyakGoreng": ~ return "packs"
+    - product == "minyakTanah": ~ return "liter"
+    - product == "tepung": ~ return "kilogram"
+    - product == "telur": ~ return "kilogram"
+    - product == "beras": ~ return "kilogram"
+    - product == "gula": ~ return "kilogram"
     - else: ~ return "errLabel"
 }
 
 === function formatProduct(product, amount) ===
 {
-    - product == minyakGoreng: ~ return "{amount} {getLabel(product)} of Frying Oil"
-    - product == minyakTanah: ~ return "{amount} {getLabel(product)} of Kerosene"
-    - product == tepung: ~ return "{amount} {getLabel(product)} of Flour"
-    - product == telur: ~ return "{amount} {getLabel(product)} of Eggs"
-    - product == beras: ~ return "{amount} {getLabel(product)} of Rice"
-    - product == gula: ~ return "{amount} {getLabel(product)} of Sugar"
+    - product == "minyakGoreng": ~ return "{amount} {getLabel(product)} of Frying Oil"
+    - product == "minyakTanah": ~ return "{amount} {getLabel(product)} of Kerosene"
+    - product == "tepung": ~ return "{amount} {getLabel(product)} of Flour"
+    - product == "telur": ~ return "{amount} {getLabel(product)} of Eggs"
+    - product == "beras": ~ return "{amount} {getLabel(product)} of Rice"
+    - product == "gula": ~ return "{amount} {getLabel(product)} of Sugar"
     - else: ~ return "errFormat"
 }
 

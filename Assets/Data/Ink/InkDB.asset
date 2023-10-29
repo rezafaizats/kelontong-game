@@ -15,3 +15,5 @@ MonoBehaviour:
   data:
   - id: testing
     inkFile: {fileID: 4900000, guid: 6553d4c0d1f338949aa8ca5a5039abc6, type: 3}
+  - id: main
+    inkFile: {fileID: 4900000, guid: 93335e205d9fc584bad292ecbd2e3e42, type: 3}

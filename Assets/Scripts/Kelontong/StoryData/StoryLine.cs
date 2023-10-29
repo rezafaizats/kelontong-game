@@ -25,7 +25,7 @@ namespace Kelontong.StoryData
             foreach (var tag in tags)
             {
                 if (!tag.StartsWith(SPEAKER)) continue;
-                speaker = tag.Remove(tag.IndexOf(' ')).Trim();
+                speaker = tag.Remove(0, tag.IndexOf(' ')).Trim();
                 return true;
             }
 
