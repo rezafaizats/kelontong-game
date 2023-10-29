@@ -1,4 +1,3 @@
-using System;
 using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
 using Kelontong.Events.Minigames.Beras;
@@ -8,9 +7,8 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class BerasView : View, IPreventInteraction
-    {
-        [SerializeField] private Button submitButton;
+    public class GulaView : View, IPreventInteraction
+    {[SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Image weightNeedle;
         [SerializeField] private TextMeshProUGUI shopAmountText;
@@ -27,7 +25,7 @@ namespace Kelontong.Views
         {
             submitButton.onClick.AddListener(SubmitRiceAmount);
             clearButton.onClick.AddListener(ClearRiceAmount);
-
+            
             noneAmount = topWeightContainer.sprite;
         }
 
@@ -38,7 +36,7 @@ namespace Kelontong.Views
             amountToRotation *= 270;
             var localRotation = Quaternion.Euler(0f, 0f, -amountToRotation);
             weightNeedle.transform.localRotation = localRotation;
-            
+
             if(amount > 100 && amount < 250) {
                 topWeightContainer.sprite = fewAmount;
             }

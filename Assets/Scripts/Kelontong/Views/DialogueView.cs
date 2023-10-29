@@ -14,7 +14,7 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class DialogueView : View
+    public class DialogueView : View, IPreventInteraction
     {
         [SerializeField] private MMF_Player dialogueFeedback;
         [SerializeField] private Button continueButton;

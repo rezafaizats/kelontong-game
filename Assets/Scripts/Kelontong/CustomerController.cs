@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Kelontong.Interactables;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
