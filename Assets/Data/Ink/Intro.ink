@@ -1,12 +1,9 @@
 === Introduction ===
-=Opening
+=Day1
 In the bright morning, as a grocery trader, you prepare for your shop's opening. Glancing at yesterday's newspaper, 
 you discover alarming news: "INDONESIAN ECONOMY THREATENED."
 The Rupiah weakens to 13,000 per US dollar, causing uncontrollable grocery prices in some areas. 
 Anticipating a challenging future, you aim to support your family by selling groceries. Ready to start selling, you check your inventory.
-
--> Day1
-=Day1
 While checking Your inventory, You just realize that yesterday was the time to restock Your goods, and You forgot to go shopping.
 
 -> END
