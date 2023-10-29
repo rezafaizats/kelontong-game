@@ -16,6 +16,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8b1a93c5e29f437aa98690274253187910200/55/9c36996c/AudioClip.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8b1a93c5e29f437aa98690274253187910200/af/07b5d670/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Kelontong/TEMP_ARYA/Test Script.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Kelontong/TEMP_ARYA/TestPlayerModuleLoader.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -104,7 +105,7 @@
       <workItem from="1698494609456" duration="8419000" />
       <workItem from="1698537787457" duration="7225000" />
       <workItem from="1698564671539" duration="3708000" />
-      <workItem from="1698575972962" duration="4539000" />
+      <workItem from="1698575972962" duration="8254000" />
     </task>
     <servers />
   </component>
