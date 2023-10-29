@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Arr.EventsSystem;
 using Arr.ModulesSystem;
 using Kelontong.Events.ShopInventory;
@@ -14,10 +15,25 @@ namespace Kelontong.Modules
         IEventListener<AddMoneyToShopEvent>,
         IEventListener<RemoveMoneyFromShopEvent>,
         IQueryProvider<QueryProductFromShopResult, QueryProductFromShop>,
-        IQueryProvider<QueryMoneyFromShop>
+        IQueryProvider<QueryMoneyFromShop>,
+        IQueryProvider<QueryStock>
     {
         private int money = 0;
         private Dictionary<string, float> products = new();
+
+        protected override Task OnLoad()
+        {
+            money = 25000;
+            products = new()
+            {
+                {"telur", 2.5f},
+                {"beras", 3f},
+                {"minyakGoreng", 10f},
+
+            };
+            
+            return base.OnLoad();
+        }
 
         public void OnEvent(AddProductToShopEvent data)
         {
@@ -69,6 +85,11 @@ namespace Kelontong.Modules
         public static void AddMoney(int amount)
         {
             GlobalEvents.Fire(new AddMoneyToShopEvent(amount));
+        }
+
+        QueryStock IQueryProvider<QueryStock>.OnQuery()
+        {
+            return new() {stock = products};
         }
     }
 }

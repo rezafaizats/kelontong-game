@@ -23,6 +23,9 @@ namespace Kelontong.Modules
             new UnityEventSystemModule(),
             new InkModule(),
             new DayOfTimeModule(),
+            new ShopInventoryModule(),
+            new ProductMarketModule(),
+            new FadeViewModule(),
         };
         
         private BaseModule[] introModules = new BaseModule[]
@@ -32,16 +35,13 @@ namespace Kelontong.Modules
         
         private BaseModule[] gameModules = new BaseModule[]
         {
-            new FadeViewModule(),
-
+            new ShopInventoryViewModule(),
             new WorldLoaderModule(),
             new CameraControlModule(),
             new CustomerQueueModule(),
             new CustomerTransactionModule(),
             new PlayerInventoryModule(),
             new PlayerSpawnerModule(),
-            new ProductMarketModule(),
-            new ShopInventoryModule(),
             
             new BerasViewModule(),
             new CalculatorViewModule(),

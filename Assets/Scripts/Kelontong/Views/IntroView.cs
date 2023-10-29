@@ -26,6 +26,7 @@ namespace Kelontong.Views
         private void Awake()
         {
             continueButton.onClick.AddListener(OnContinue);
+            dialogueFeedback.Initialization(gameObject);
         }
 
         private void OnContinue()

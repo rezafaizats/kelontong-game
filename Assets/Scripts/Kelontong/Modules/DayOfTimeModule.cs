@@ -54,7 +54,7 @@ namespace Kelontong.Modules
         {
             isRunning = true;
          
-            GlobalEvents.Fire(new OnDayStartedEvent());
+            GlobalEvents.Fire(new OnDayStartedEvent(){ day = day });
         }
 
         private void StopDay()

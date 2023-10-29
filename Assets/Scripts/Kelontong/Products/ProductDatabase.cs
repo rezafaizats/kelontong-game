@@ -9,6 +9,7 @@ namespace Kelontong.Products
     {
         public string Key => id;
         public string id;
+        public string productName;
         public string label;
         public Sprite icon;
     }

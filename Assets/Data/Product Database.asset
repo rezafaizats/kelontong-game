@@ -14,20 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - id: minyakGoreng
-    label: Liter
+    productName: 
+    label: Bottle
     icon: {fileID: 21300000, guid: d1129f75ca2663941a5ca039ba71f1ca, type: 3}
   - id: minyakTanah
+    productName: 
     label: Liter
     icon: {fileID: 21300000, guid: a954ae6c33954b248acd8159d58e6a79, type: 3}
   - id: beras
+    productName: 
     label: Kg
     icon: {fileID: 21300000, guid: 8a2a450229d307742919cc748b51e555, type: 3}
   - id: tepung
+    productName: 
     label: Kg
     icon: {fileID: 21300000, guid: 9821d47c311699d448058fb809eec872, type: 3}
   - id: telur
+    productName: 
     label: Kg
     icon: {fileID: 21300000, guid: ee76c869a3eba8b4cb9f47333e87c7aa, type: 3}
   - id: gula
+    productName: 
     label: Kg
     icon: {fileID: 21300000, guid: 0b2053a69899abc4f8d11b09597145a2, type: 3}

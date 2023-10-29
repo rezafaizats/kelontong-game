@@ -67,9 +67,12 @@ namespace Kelontong.Modules
             var products = customer.GenerateProductRequest();
             if (count > products.Count) throw new Exception("TRYING TO GENERATE PRODUCT MORE THAN PROFILE");
 
-            currentRequest = products
+            var randRequest = products
                 .OrderBy(x => Random.Range(0, 9999)) //Shuffle with LINQ
                 .Take(count).ToDictionary(x => x.Key, x => x.Value);
+
+            foreach (var req in randRequest)
+                currentRequest.Add(req.Key, req.Value);
 
             expectedPricePerUnit = customer.GenerateExpectedPricing();
             
