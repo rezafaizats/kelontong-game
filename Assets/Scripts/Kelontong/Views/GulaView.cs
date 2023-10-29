@@ -13,12 +13,20 @@ namespace Kelontong.Views
         [SerializeField] private Image weightNeedle;
         [SerializeField] private TextMeshProUGUI shopAmountText;
 
+        [SerializeField] private Image topWeightContainer;
+        [SerializeField] private Sprite noneAmount;
+        [SerializeField] private Sprite fewAmount;
+        [SerializeField] private Sprite someAmount;
+        [SerializeField] private Sprite lotsAmount;
+
         public override bool ActiveOnSpawn => false;
 
         private void Awake()
         {
             submitButton.onClick.AddListener(SubmitRiceAmount);
             clearButton.onClick.AddListener(ClearRiceAmount);
+            
+            noneAmount = topWeightContainer.sprite;
         }
 
         public void DisplayWeight(float amount)
@@ -28,6 +36,20 @@ namespace Kelontong.Views
             amountToRotation *= 270;
             var localRotation = Quaternion.Euler(0f, 0f, -amountToRotation);
             weightNeedle.transform.localRotation = localRotation;
+
+            if(amount > 100 && amount < 250) {
+                topWeightContainer.sprite = fewAmount;
+            }
+            else if(amount >= 250 && amount < 500) {
+                topWeightContainer.sprite = someAmount;
+            }
+            else if(amount >= 500){
+                topWeightContainer.sprite = lotsAmount;
+            } 
+            else
+            {
+                topWeightContainer.sprite = noneAmount;
+            }
         }
 
         public void DisplayShopInventory(float amount) {
