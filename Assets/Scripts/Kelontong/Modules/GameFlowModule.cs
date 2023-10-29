@@ -41,7 +41,7 @@ namespace Kelontong.Modules
             new CustomerQueueModule(),
             new CustomerTransactionModule(),
             new PlayerInventoryModule(),
-            new PlayerSpawnerModule(),
+            new PlayerControllerModule(),
             
             new BerasViewModule(),
             new CalculatorViewModule(),

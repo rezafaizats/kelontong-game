@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Kelontong.Interactables;
 using Kelontong.Modules;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 namespace Kelontong.World
@@ -14,6 +15,7 @@ namespace Kelontong.World
         [SerializeField] private GameObject riceInteractables;
         [SerializeField] private GameObject flourInteractables;
         [SerializeField] private GameObject eggInteractables;
+        [SerializeField] private GameObject palmOilInteractables;
 
         [SerializeField] private Transform customerSpawnPosition;
         [SerializeField] private Transform customerQueuePosition;
@@ -27,6 +29,7 @@ namespace Kelontong.World
             switch (productID)
             {
                 case "minyakGoreng":
+                    palmOilInteractables.SetActive(active);
                     break;
                 case "minyakTanah":
                     oilInteractables.SetActive(active);

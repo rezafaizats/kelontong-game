@@ -5,15 +5,29 @@ using Arr.EventsSystem;
 using Arr.ModulesSystem;
 using Arr.PrefabRegistrySystem;
 using Kelontong.Events;
+using Kelontong.Events.ShopInventory;
 using UnityEngine;
 
 namespace Kelontong.Modules
 {
     public class WorldLoaderModule : BaseModule, 
         IQueryProvider<QueryPresentedProductResult>,
-        IQueryProvider<QueryQueueStartTransform>
+        IQueryProvider<QueryQueueStartTransform>,
+        IEventListener<OnDayStartedEvent>
     {
         private World.World world;
+
+        public void OnEvent(OnDayStartedEvent data)
+        {
+            var queryResult = GlobalEvents.Query<QueryStock>();
+            foreach (var item in queryResult.stock)
+            {
+                if(item.Value > 0)
+                    world.SetInteractableActive(item.Key, true);
+                else
+                    world.SetInteractableActive(item.Key, false);
+            }
+        }
 
         public QueryPresentedProductResult OnQuery()
         {
