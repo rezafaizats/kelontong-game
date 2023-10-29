@@ -1,6 +1,5 @@
 === day1Customer ===
 = random
-
 {Hello, i want |Hey, i need |Hi, i would like |Hey, can i get } <> #speaker {currentName}
 -> randomProducts
 = randomProducts

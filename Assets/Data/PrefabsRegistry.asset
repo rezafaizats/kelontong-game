@@ -18,6 +18,6 @@ MonoBehaviour:
   - id: customer
     prefab: {fileID: 7575028655838152925, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}
   - id: Camera
-    prefab: {fileID: 5169346824123639519, guid: b86fabd83b9b7014c86a3996a11099a6, type: 3}
+    prefab: {fileID: 2476183764457009353, guid: ad3156a7404361c4eb882d29ec329f48, type: 3}
   - id: World
     prefab: {fileID: 8037080754246940550, guid: 3a8047e4ea7d9ea4ebe602da657f4a7e, type: 3}

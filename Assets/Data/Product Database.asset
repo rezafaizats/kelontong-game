@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d04f6bab27745a3971f1038f57242b2, type: 3}
+  m_Name: Product Database
+  m_EditorClassIdentifier: 
+  data:
+  - id: minyakGoreng
+    label: Liter
+    icon: {fileID: 21300000, guid: d1129f75ca2663941a5ca039ba71f1ca, type: 3}
+  - id: minyakTanah
+    label: Liter
+    icon: {fileID: 21300000, guid: a954ae6c33954b248acd8159d58e6a79, type: 3}
+  - id: beras
+    label: Kg
+    icon: {fileID: 21300000, guid: 8a2a450229d307742919cc748b51e555, type: 3}
+  - id: tepung
+    label: Kg
+    icon: {fileID: 21300000, guid: 9821d47c311699d448058fb809eec872, type: 3}
+  - id: telur
+    label: Kg
+    icon: {fileID: 21300000, guid: ee76c869a3eba8b4cb9f47333e87c7aa, type: 3}
+  - id: gula
+    label: Kg
+    icon: {fileID: 21300000, guid: 0b2053a69899abc4f8d11b09597145a2, type: 3}

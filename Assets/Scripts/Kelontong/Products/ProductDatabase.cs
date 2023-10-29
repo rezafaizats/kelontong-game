@@ -13,6 +13,7 @@ namespace Kelontong.Products
         public Sprite icon;
     }
 
+    [CreateAssetMenu(fileName = "Product Database", menuName = "Product Databse")]
     public class ProductDatabase : PairScriptableDatabase<string, ProductData>
     {
         

@@ -11,7 +11,7 @@ namespace Kelontong.Views
 {
     class TelurView : View
     {
-        [SerializeField] private TextMeshPro scaleText;
+        [SerializeField] private SpriteRenderer scaleNeedle;
         [SerializeField] private Egg eggPrefabs;
 
         [SerializeField] private List<Transform> eggSpawnPositions;
@@ -19,7 +19,10 @@ namespace Kelontong.Views
         public override bool ActiveOnSpawn => false;
 
         public void DisplayWeight(float weight) {
-            scaleText.text = weight.ToString("F0") + "g";
+            var weightToRotation = weight / 1000f;
+            weightToRotation *= 270;
+            var localRotation = Quaternion.Euler(0f, 0f, -weightToRotation);
+            scaleNeedle.transform.localRotation = localRotation;
         }
 
         public void DisplayEgg(int totalEgg) {
