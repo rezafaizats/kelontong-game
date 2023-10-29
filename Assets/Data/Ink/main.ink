@@ -17,9 +17,18 @@ INCLUDE Endings.ink
 -> day1UniqueCustomer.weirdPreacher
 -> day2Customer.random
 -> day2UniqueCustomer.Asep
-
-
+-> day3Customer.random
+-> day3UniqueCustomer.mbahNgesi
+-> day4Customer.random
+-> day5Customer.random
+-> endingChoice
+=== endingChoice ===
+VAR playerMoney = {GetPlayerMoney()}
+VAR moneyTarget = 100000
 VAR requestText = ""
+{asepEnding == true: ->endings.asepEndings}
+{playerMoney >= moneyTarget: -> endings.justEnding | -> endings.badEndings}
+
 
 
 
