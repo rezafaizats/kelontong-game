@@ -1,6 +1,6 @@
 === Introduction ===
 =Day1
-In the bright morning, as a grocery trader, you prepare for your shop's opening. 
+In the bright morning circa 98, as a grocery trader, you prepare for your shop's opening. 
 Glancing at yesterday's newspaper, you discover alarming news: "INDONESIAN ECONOMY THREATENED."
 The Rupiah weakens to 13,000 per US dollar, causing uncontrollable grocery prices in some areas. 
 Anticipating a challenging future, you aim to support your family by selling groceries. Ready to start selling, you check your inventory.
