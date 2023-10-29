@@ -50,7 +50,7 @@ namespace Kelontong.Modules
             var point = spawnPoint;
             point.x = Random.Range(-8f, 8f);
             point.y /= 2f;
-            controller.SetNextPoint(point, 0f, true);
+            controller.SetNextPoint(point, 0f);
 
             int index = 0;
             foreach (var q in queue)

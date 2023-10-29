@@ -5,6 +5,7 @@ namespace Kelontong
 {
     public class CustomerController : MonoBehaviour
     {
+        [SerializeField] private AnimationCurve arcCurve;
         private float speed = 0.1f;
         private Vector3 target;
         private Vector3 offset;
@@ -47,6 +48,31 @@ namespace Kelontong
                 distanceCovered = (Time.time - startTime) * speed;
                 yield return null;
             }
+        }
+        
+        private IEnumerator LeaveCoroutine()
+        {
+            Vector3 startPoint = transform.position;
+            float journeyLength = Vector3.Distance(startPoint, target);
+            float startTime = Time.time;
+
+            float distanceCovered = 0;
+            while (distanceCovered < journeyLength)
+            {
+                float fractionOfJourney = distanceCovered / journeyLength;
+            
+                Vector3 nextPosition = Vector3.Lerp(startPoint, target, fractionOfJourney);
+            
+                // Adjust the Y position based on the arcCurve
+                nextPosition.y += arcCurve.Evaluate(fractionOfJourney) * journeyLength;
+
+                transform.position = nextPosition;
+            
+                distanceCovered = (Time.time - startTime) * speed;
+                yield return null;
+            }
+
+            DestroyImmediate(gameObject);
         }
     }
 }
