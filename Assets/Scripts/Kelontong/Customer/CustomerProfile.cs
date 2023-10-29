@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Arr.EventsSystem;
 using Kelontong.Events.Story;
+using Kelontong.Interactables;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,10 +17,17 @@ namespace Kelontong.Customer
         public float normalizedMarketValueBias;
     }
     
-    public class CustomerProfile : MonoBehaviour
+    public class CustomerProfile : MonoBehaviour, IInteractables
     {
+        [SerializeField] private TextMeshPro interactText;
+
         [SerializeField] private string startDialoguePath, presentProductDialoguePath;
         [SerializeField] private ProductProfile[] productProfiles;
+        
+
+        void Start() {
+            HideText();
+        }
 
         public void StartDialogue()
         {
@@ -46,6 +55,23 @@ namespace Kelontong.Customer
         public Dictionary<string, int> GenerateExpectedPricing()
         {
             throw new NotImplementedException();
+        }
+
+
+        public void DisplayText()
+        {
+            interactText.gameObject.SetActive(true);
+        }
+
+        public void HideText()
+        {
+            interactText.gameObject.SetActive(false);
+        }
+
+        public void Interact()
+        {
+            //Interact
+            StartDialogue();
         }
     }
 }
