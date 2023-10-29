@@ -6,6 +6,7 @@ using Arr.ModulesSystem;
 using Arr.PrefabRegistrySystem;
 using Kelontong.Events;
 using Kelontong.Events.ShopInventory;
+using Kelontong.Products;
 using UnityEngine;
 
 namespace Kelontong.Modules
@@ -20,12 +21,13 @@ namespace Kelontong.Modules
         public void OnEvent(OnDayStartedEvent data)
         {
             var queryResult = GlobalEvents.Query<QueryStock>();
-            foreach (var item in queryResult.stock)
+            var allProducts = ProductDatabase.GetAll();
+
+            foreach (var product in allProducts)
             {
-                if(item.Value > 0)
-                    world.SetInteractableActive(item.Key, true);
-                else
-                    world.SetInteractableActive(item.Key, false);
+                world.SetInteractableActive(product.id, 
+                    queryResult.stock.ContainsKey(product.id) 
+                    && queryResult.stock[product.id] > 0f);
             }
         }
 

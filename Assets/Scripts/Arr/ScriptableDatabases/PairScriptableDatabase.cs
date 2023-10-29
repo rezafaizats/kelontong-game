@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Arr.SDS
@@ -8,7 +9,7 @@ namespace Arr.SDS
         where TKey : IEquatable<TKey> 
         where TValue : IScriptableKey<TKey>
     {
-        [SerializeField] private TValue[] data;
+        [SerializeField] protected TValue[] data;
 
         public static Dictionary<TKey, TValue> _dict = new();
 
@@ -28,5 +29,7 @@ namespace Arr.SDS
         }
 
         public static bool TryGet(TKey id, out TValue data) => _dict.TryGetValue(id, out data);
+
+        public static TValue[] GetAll() => _dict.Values.ToArray();
     }
 }
