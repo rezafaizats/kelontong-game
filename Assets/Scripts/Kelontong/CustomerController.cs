@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Kelontong
 {
@@ -9,8 +11,20 @@ namespace Kelontong
         private float speed = 0.1f;
         private Vector3 target;
         private Vector3 offset;
+        private Vector3 currentDirection;
+        private Vector3 lastPosition;
 
         private Coroutine moveCoroutine = null;
+
+        public Vector3 CurrentDirection => currentDirection;
+
+        private void Update()
+        {
+            currentDirection = transform.position - lastPosition;
+            lastPosition = transform.position;
+            
+            currentDirection.Normalize();
+        }
 
         public void SetNextPoint(Vector3 nextPoint, float delay)
         {
