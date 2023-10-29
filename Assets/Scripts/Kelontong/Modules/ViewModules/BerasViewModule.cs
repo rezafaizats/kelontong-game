@@ -20,7 +20,9 @@ namespace Kelontong.Modules.ViewModules
 
         protected override void OnOpen()
         {
-            var queryResult = GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(new QueryProductFromShop(productId));
+            var queryResult =
+                GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(
+                    new QueryProductFromShop(productId));
             if(!queryResult.found) throw new Exception("Product doesn't exist!");
             
             shopInventoryWeightBeras = queryResult.quantity;
