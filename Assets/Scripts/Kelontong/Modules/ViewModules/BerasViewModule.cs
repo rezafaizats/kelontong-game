@@ -15,17 +15,18 @@ namespace Kelontong.Modules.ViewModules
         private const string productId = "beras";
 
         private float shopInventoryWeightBeras = 0;
+        private float tempShopInventoryWeightBeras = 0;
         private float totalWeightBeras = 0;
-        protected override Task OnLoad()
-        {
-            return base.OnLoad();
-        }
 
         protected override void OnOpen()
         {
             var queryResult = GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(new QueryProductFromShop(productId));
             if(!queryResult.found) throw new Exception("Product doesn't exist!");
+            
             shopInventoryWeightBeras = queryResult.quantity;
+            tempShopInventoryWeightBeras = shopInventoryWeightBeras;
+            view.DisplayShopInventory(shopInventoryWeightBeras);
+            
             base.OnOpen();
         }
 
@@ -35,7 +36,9 @@ namespace Kelontong.Modules.ViewModules
             if(currentWeight <= 0f) return;
 
             totalWeightBeras = totalWeightBeras + data.berasValue;
+            shopInventoryWeightBeras = currentWeight;
             view.DisplayWeight(totalWeightBeras);
+            view.DisplayShopInventory(shopInventoryWeightBeras);
         }
 
         public void OnEvent(OnBerasSubmitEvent data)
@@ -47,7 +50,9 @@ namespace Kelontong.Modules.ViewModules
         public void OnEvent(OnBerasNumberClearEvent data)
         {
             totalWeightBeras = 0;
+            shopInventoryWeightBeras = tempShopInventoryWeightBeras;
             view.DisplayWeight(totalWeightBeras);
+            view.DisplayShopInventory(shopInventoryWeightBeras);
         }
     }
 }

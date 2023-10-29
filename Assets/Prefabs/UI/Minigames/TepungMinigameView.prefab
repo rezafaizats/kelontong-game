@@ -87,9 +87,9 @@ GameObject:
   - component: {fileID: 1246325829191809662}
   - component: {fileID: 6155812485112789137}
   - component: {fileID: 5818153686337615696}
-  - component: {fileID: -1482011217473768534}
+  - component: {fileID: 2308914615629980836}
   m_Layer: 5
-  m_Name: BerasMinigameView
+  m_Name: TepungMinigameView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &-1482011217473768534
+--- !u!114 &2308914615629980836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1230162304466089986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d901ab158d4c2ab68796650c9be02f, type: 3}
+  m_Script: {fileID: 11500000, guid: 71150373090392247ae2c06e21000068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   submitButton: {fileID: 464748018671055812}
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2cb0696cae3a0ec45a87cc6f36223e93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e8cfef8bec723c42a2bf80bd8467a88, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

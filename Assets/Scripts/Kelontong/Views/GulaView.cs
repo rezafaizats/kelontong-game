@@ -1,4 +1,3 @@
-using System;
 using Arr.EventsSystem;
 using Arr.ViewModuleSystem;
 using Kelontong.Events.Minigames.Beras;
@@ -8,9 +7,8 @@ using UnityEngine.UI;
 
 namespace Kelontong.Views
 {
-    public class BerasView : View
-    {
-        [SerializeField] private Button submitButton;
+    public class GulaView : View
+    {[SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Image weightNeedle;
         [SerializeField] private TextMeshProUGUI shopAmountText;
