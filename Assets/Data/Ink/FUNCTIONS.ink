@@ -11,6 +11,11 @@ EXTERNAL GetFulfillmentScore()
 EXTERNAL AddMoney(amount)
 EXTERNAL GetPrice()
 
+EXTERNAL GetPlayerMoney()
+
+=== function GetPlayerMoney() ===
+~ return RANDOM(0, 10000)
+
 === function GetFulfillmentScore() ===
 ~ return RANDOM(-100, 100) / 100.0
 
