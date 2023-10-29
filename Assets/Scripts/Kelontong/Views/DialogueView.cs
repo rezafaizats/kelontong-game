@@ -7,6 +7,7 @@ using Arr.ViewModuleSystem;
 using Kelontong.Dialogue;
 using Kelontong.Events.Story;
 using Kelontong.StoryData;
+using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ namespace Kelontong.Views
 {
     public class DialogueView : View
     {
+        [SerializeField] private MMF_Player dialogueFeedback;
         [SerializeField] private Button continueButton;
         [SerializeField] private TextMeshProUGUI lineText, speakerText;
         [SerializeField] private GameObject choiceGroup, speakerGroup;
@@ -101,6 +103,7 @@ namespace Kelontong.Views
                     {
                         lineText.text += letter;
                         currentIndex++;
+                        dialogueFeedback.PlayFeedbacks();
                         yield return new WaitForSeconds(letterPause);
                     }
                 }

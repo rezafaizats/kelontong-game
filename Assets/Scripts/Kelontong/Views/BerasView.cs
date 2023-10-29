@@ -12,7 +12,8 @@ namespace Kelontong.Views
     {
         [SerializeField] private Button submitButton;
         [SerializeField] private Button clearButton;
-        [SerializeField] private TextMeshProUGUI weightText;
+        [SerializeField] private Image weightNeedle;
+        [SerializeField] private TextMeshProUGUI shopAmountText;
 
         public override bool ActiveOnSpawn => false;
 
@@ -22,9 +23,17 @@ namespace Kelontong.Views
             clearButton.onClick.AddListener(ClearRiceAmount);
         }
 
-        public void DisplayWeight(float angka)
+        public void DisplayWeight(float amount)
         {
-            weightText.text = angka.ToString("F0");
+            // weightText.text = angka.ToString("F0");
+            var amountToRotation = amount / 1000f;
+            amountToRotation *= 270;
+            var localRotation = Quaternion.Euler(0f, 0f, -amountToRotation);
+            weightNeedle.transform.localRotation = localRotation;
+        }
+
+        public void DisplayShopInventory(float amount) {
+            shopAmountText.text = amount.ToString("F0");
         }
 
         public void ClearRiceAmount()

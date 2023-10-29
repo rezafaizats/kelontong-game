@@ -33,6 +33,10 @@ namespace Kelontong.Modules
 
         protected override Task OnLoad()
         {
+            var t = GlobalEvents.Query<QueryQueueStartTransform>();
+            queueStart = t.transform.position;
+            spawnPoint = queueStart + queueDirection * 20f;
+            
             UnityEvents.onUpdate += Update;
             return base.OnLoad();
         }
@@ -67,7 +71,7 @@ namespace Kelontong.Modules
             foreach (var q in queue)
             {
                 var delay = index * Random.Range(0.1f, 0.15f) + 0.2f;
-                q.SetNextPoint(queueStart + (queueDirection * index), delay);
+                SetCustomerPosition(q, index, delay);
                 index++;
             }
         }
@@ -77,11 +81,18 @@ namespace Kelontong.Modules
             var prefab = PrefabRegistry.Get("customer");
             var obj = Object.Instantiate(prefab, spawnPoint, Quaternion.identity);
             var controller = obj.GetComponent<CustomerController>();
+            SetCustomerPosition(controller, queue.Count, 0f);
 
             queue.Enqueue(controller);
+        }
 
-            var target = queueStart + (queueDirection * queue.Count);
-            controller.SetNextPoint(target, 0f);
+        private void SetCustomerPosition(CustomerController controller, int index, float delay)
+        {
+            var target = queueStart + (queueDirection * index);
+
+            if (index == 0) target += queueDirection * -1.5f;
+               
+            controller.SetNextPoint(target, delay);
         }
 
         public void OnEvent(DequeueCustomerEvent data)
