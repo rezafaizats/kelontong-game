@@ -51,7 +51,6 @@ namespace Kelontong.Modules
             new DialogueViewModule(),
             new MinyakTanahViewModule(),
             new TelurViewModule(),
-            new BerasViewModule(),
             new GulaViewModule(),
             new TepungViewModule()
             
@@ -94,6 +93,8 @@ namespace Kelontong.Modules
 
                 await endDay.Task;
             }
+            
+            
         }
 
         protected override async Task OnUnload()
