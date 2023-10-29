@@ -73,3 +73,14 @@ crashlytics-build.properties
 
 #Project Testing folder
 /[Aa]ssets/Testing/*
+Packages/packages-lock.json
+ProjectSettings/InkSettings.asset
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/ProjectVersion.txt
+Packages/packages-lock.json
+ProjectSettings/InkSettings.asset
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/ProjectVersion.txt
+.vsconfig

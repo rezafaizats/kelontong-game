@@ -423,7 +423,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  interactText: {fileID: 0}
 --- !u!114 &234496188644063815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,8 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 6072064121307219329}
-  startDialoguePath: 
-  presentProductDialoguePath: 
+  startDialoguePath: day{day}Customer.random
+  presentProductDialoguePath: day{day}Customer.presentProduct
   productProfiles: []
 --- !u!65 &5562071105909820739
 BoxCollider:
