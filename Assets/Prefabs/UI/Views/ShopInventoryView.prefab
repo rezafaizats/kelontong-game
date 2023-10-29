@@ -120,7 +120,7 @@ MonoBehaviour:
   gainMoneyFeedback: {fileID: 3542528823728635751}
   moneyText: {fileID: 4493127226475426425}
   currentRequestText: {fileID: 6665658746243603741}
-  speed: 5
+  speed: 10000
   productPanelElements:
   - {fileID: 226836262284826877}
   - {fileID: 21847587042216202}

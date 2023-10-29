@@ -1,10 +1,12 @@
 using Arr.EventsSystem;
+using Kelontong.Events.ShopInventory;
 using Kelontong.StoryData;
 
 namespace Kelontong.Events.CustomerTransactions
 {
     public static class CustomerTransaction
     {
+        [StoryEvent] public static int GetPlayerMoney() => GlobalEvents.Query<QueryMoneyFromShop>().money;
         [StoryEvent] public static int GetPrice() => GlobalEvents.Query<int, QueryPrice>(new ());
         [StoryEvent] public static void RejectSale() => GlobalEvents.Fire(new RejectSaleEvent());
         [StoryEvent] public static void StartSale() => GlobalEvents.Fire(new StartSaleEvent());

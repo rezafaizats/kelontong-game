@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Arr.ViewModuleSystem;
@@ -56,17 +57,7 @@ namespace Kelontong.Views
 
         public void DisplayMoney(int newValue)
         {
-            gainMoneyFeedback.PlayFeedbacks();
-            target = newValue;
-        }
-
-        private void Update()
-        {
-            if (currentInt == target) return;
-
-            current += Time.deltaTime * speed;
-            currentInt = Mathf.RoundToInt(current);
-            moneyText.text = currentInt.ToString();
+            moneyText.text = newValue.ToString();
         }
     }
 }

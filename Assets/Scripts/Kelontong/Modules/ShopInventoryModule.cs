@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Arr.EventsSystem;
 using Arr.ModulesSystem;
+using Kelontong.Events.CustomerTransactions;
 using Kelontong.Events.ShopInventory;
 using Kelontong.Products;
 using Kelontong.StoryData;

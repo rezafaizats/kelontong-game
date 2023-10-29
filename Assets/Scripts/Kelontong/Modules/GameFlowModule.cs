@@ -24,7 +24,6 @@ namespace Kelontong.Modules
             new InkModule(),
             new DayOfTimeModule(),
             new ShopInventoryModule(),
-            new ProductMarketModule(),
             new FadeViewModule(),
         };
         
@@ -41,7 +40,7 @@ namespace Kelontong.Modules
             new CustomerQueueModule(),
             new CustomerTransactionModule(),
             new PlayerInventoryModule(),
-            new PlayerSpawnerModule(),
+            new PlayerControllerModule(),
             
             new BerasViewModule(),
             new CalculatorViewModule(),

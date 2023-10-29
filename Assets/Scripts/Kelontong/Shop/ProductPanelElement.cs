@@ -19,8 +19,8 @@ namespace Kelontong.Shop
             icon.sprite = data.icon;
             nameText.text = data.productName;
             stockText.text = $"In Stock: {quantity:F2}{data.label}";
-            var marketPrice = GlobalEvents.Query<QueryProductMarketPrice>();
-            marketPriceText.text = $"MARKET PRICE:<br>Rp.{marketPrice}/{data.label}";
+            var day = GlobalEvents.Query<QueryDay>().day;
+            marketPriceText.text = $"MARKET PRICE:<br>Rp.{data.GetPrice(day)}/{data.label}";
         }
     }
 }
