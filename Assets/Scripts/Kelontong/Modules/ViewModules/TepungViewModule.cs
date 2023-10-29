@@ -25,7 +25,7 @@ namespace Kelontong.Modules.ViewModules
                     new QueryProductFromShop(productId));
             if (!queryResult.found) throw new Exception("Product doesn't exist!");
 
-            shopInventoryWeightTepung = queryResult.quantity;
+            shopInventoryWeightTepung = queryResult.quantity * 1000;
             tempShopInventoryTepung = shopInventoryWeightTepung;
             view.DisplayShopInventory(shopInventoryWeightTepung);
             
@@ -47,6 +47,7 @@ namespace Kelontong.Modules.ViewModules
         {
             GlobalEvents.Fire(new AddProductToPlayerEvent(productId, totalWeightTepung));
             GlobalEvents.Fire(new RemoveProductFromShopEvent(productId, totalWeightTepung));
+            view.Close();
         }
 
         public void OnEvent(OnTepungNumberClearEvent data)

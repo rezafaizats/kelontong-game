@@ -23,7 +23,7 @@ namespace Kelontong.Modules.ViewModules
                     new QueryProductFromShop(productId));
             if (!queryResult.found) throw new Exception("Product doesn't exist!");
 
-            shopInventoryWeightGula = queryResult.quantity;
+            shopInventoryWeightGula = queryResult.quantity * 1000;
             tempShopInventoryWeightGula = shopInventoryWeightGula;
             view.DisplayShopInventory(shopInventoryWeightGula);
             
@@ -43,8 +43,10 @@ namespace Kelontong.Modules.ViewModules
 
         public void OnEvent(OnGulaSubmitEvent data)
         {
+            totalWeightGula /= 1000f;
             GlobalEvents.Fire(new AddProductToPlayerEvent(productId, totalWeightGula));
             GlobalEvents.Fire(new RemoveProductFromShopEvent(productId, totalWeightGula));
+            view.Close();
         }
 
         public void OnEvent(OnGulaNumberClearEvent data)

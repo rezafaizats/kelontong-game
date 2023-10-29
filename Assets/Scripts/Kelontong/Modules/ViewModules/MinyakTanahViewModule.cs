@@ -39,7 +39,7 @@ namespace Kelontong.Minigames
         {
             var queryResult = GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(new QueryProductFromShop(productId));
             if(!queryResult.found) throw new Exception("Product doesn't exist!");
-            maxMinyakAmount = queryResult.quantity;
+            maxMinyakAmount = queryResult.quantity * 1000;
             base.OnOpen();
         }
 
@@ -64,8 +64,10 @@ namespace Kelontong.Minigames
 
         public void OnEvent(OnMinyakTanahSubmitEvent data)
         {
+            minyakAmount /= 1000f;
             GlobalEvents.Fire(new AddProductToPlayerEvent(productId, minyakAmount));
             GlobalEvents.Fire(new RemoveProductFromShopEvent(productId, minyakAmount));
+            view.Close();
         }
     }
 }

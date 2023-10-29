@@ -53,7 +53,7 @@ namespace Kelontong.Views
         }
 
         public void DisplayShopInventory(float amount) {
-            shopAmountText.text = amount.ToString("F0");
+            shopAmountText.text = amount.ToString("F0") + "g";
         }
 
         public void ClearRiceAmount()

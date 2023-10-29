@@ -28,19 +28,22 @@ namespace Kelontong.Minigames
         {
             var queryResult = GlobalEvents.Query<QueryProductFromShopResult, QueryProductFromShop>(new QueryProductFromShop(productId));
             if(!queryResult.found) throw new Exception("Product doesn't exist!");
-            shopEggWeight = queryResult.quantity;
+            shopEggWeight = queryResult.quantity * 1000;
 
             totalEgg = (int)(shopEggWeight / 250f);
             if(totalEgg >= 8) totalEgg = 8;
 
+            Debug.Log("Spawning Egg about " + totalEgg + " " + shopEggWeight);
             view.DisplayEgg(totalEgg);
             base.OnOpen();
         }
 
         public void OnEvent(OnSubmitTelurEvent data)
         {
+            currenTotalWeight /= 1000f;
             GlobalEvents.Fire(new AddProductToPlayerEvent(productId, currenTotalWeight));
             GlobalEvents.Fire(new RemoveProductFromShopEvent(productId, currenTotalWeight));
+            view.Close();
         }
 
         public void OnEvent(OnEggAdded data)

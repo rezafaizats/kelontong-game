@@ -39,6 +39,7 @@ namespace Kelontong.Views
 
                 var egg = Instantiate(eggPrefabs, item.position, Quaternion.identity);
                 egg.transform.parent = this.transform;
+                Debug.Log("Egg spawned!");
             }
         }
         public void Submit() {
