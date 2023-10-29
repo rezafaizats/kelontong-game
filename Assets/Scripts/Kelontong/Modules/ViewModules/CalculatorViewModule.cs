@@ -47,6 +47,7 @@ namespace Kelontong.Modules.ViewModules
                         }
                         else
                         {
+                            
                             lastNumber = Operate(lastNumber, currentNumber, calculatorOperationButton.Operation);
                             currentNumber = 0;
                             view.Display(lastNumber);
@@ -95,69 +96,5 @@ namespace Kelontong.Modules.ViewModules
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        // public void OnEvent(OnCalculatorPressedEvent data)
-        // {
-        //     if (data.pressedButton is CalculatorNumberButton calculatorNumberButton)
-        //     {
-        //         currentNumber = currentNumber * 10 + calculatorNumberButton.Number;
-        //         view.Display(currentNumber);
-        //
-        //     }else if (data.pressedButton is CalculatorOperationButton calculatorOperationButton)
-        //     {
-        //         
-        //         switch (calculatorOperationButton.Operation)
-        //         {
-        //             
-        //             case CalculatorOperation.PLUS:
-        //                 lastNumber = lastNumber + currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.MINUS:
-        //                 lastNumber = lastNumber - currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.MULTIPLY:
-        //                 lastNumber = lastNumber * currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.DIVIDE:
-        //                 lastNumber = lastNumber / currentNumber;
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.CLEAR:
-        //                 currentNumber = 0;
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.DELETE:
-        //                 currentNumber = Mathf.FloorToInt(currentNumber / 10f);
-        //                 view.Display(currentNumber);
-        //                 break;
-        //             case CalculatorOperation.EQUALS:
-        //                 view.Display(lastNumber);
-        //                 break;
-        //         }
-        //     }
-        //     
-        //     
-        // }
-
-
-
     }
 }
