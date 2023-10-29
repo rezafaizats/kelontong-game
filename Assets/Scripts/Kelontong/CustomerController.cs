@@ -15,7 +15,7 @@ namespace Kelontong
         public void SetNextPoint(Vector3 nextPoint, float delay)
         {
             speed = Random.Range(0.05f, 0.3f);
-            var randX = Random.Range(-0.8f, 0.8f);
+            var randX = Random.Range(-2f, 2f);
             var randZ = Random.Range(-0.2f, 0.2f);
             offset = new Vector3(randX, 0f, randZ);
 
