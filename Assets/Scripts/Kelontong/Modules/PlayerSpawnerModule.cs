@@ -18,6 +18,7 @@ namespace Kelontong.Modules
             var obj = Object.Instantiate(playerPrefab);
 
             playerController = obj.GetComponent<PlayerController>();
+            GlobalEvents.Fire(new CameraSetTargetEvent(playerController.transform));
             
             return base.OnLoad();
         }
