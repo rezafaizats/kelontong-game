@@ -41,13 +41,14 @@ namespace Kelontong.World
 
         public void DisplayText()
         {
-            if(products == null || products.Count < 0) return;
+            var queryResult = GlobalEvents.Query<QueryProductInPlayerResult>();
+            if(string.IsNullOrEmpty(queryResult.productID)) return;
+            
             interactText.gameObject.SetActive(true);
         }
 
         public void HideText()
         {
-            if(products == null || products.Count < 0) return;
             interactText.gameObject.SetActive(false);
         }
 

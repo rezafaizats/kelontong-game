@@ -31,7 +31,7 @@ namespace Kelontong.Modules
 
         public void OnEvent(CameraSetTargetEvent data)
         {
-            throw new System.NotImplementedException();
+            SetCameraTarget(data.target);
         }
     }
 
