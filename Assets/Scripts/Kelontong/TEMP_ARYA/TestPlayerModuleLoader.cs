@@ -8,7 +8,7 @@ public class TestPlayerModuleLoader : ModulesLoader
 {
     protected override BaseModule[] Modules => new[]
     {
-        new PlayerSpawnerModule()
+        new PlayerControllerModule()
     };
 
 }
