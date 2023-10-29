@@ -12,4 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb7e328c48b40a7af0bd210668957bc, type: 3}
   m_Name: CustomerSpawnPoolDatabase
   m_EditorClassIdentifier: 
-  data: []
+  data:
+  - day: 1
+    specialChancePercent: 40
+    special: []
+    repeating:
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2962370791725550142, guid: 71a37079fbf1ac4478cc643cb8e9a446, type: 3}
+    - {fileID: 8080829889345230663, guid: 47d873648eb77db4daf2878afcdcc11f, type: 3}
+  - day: 2
+    specialChancePercent: 0
+    special: []
+    repeating:
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2962370791725550142, guid: 71a37079fbf1ac4478cc643cb8e9a446, type: 3}
+    - {fileID: 8080829889345230663, guid: 47d873648eb77db4daf2878afcdcc11f, type: 3}
+  - day: 3
+    specialChancePercent: 0
+    special: []
+    repeating:
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2962370791725550142, guid: 71a37079fbf1ac4478cc643cb8e9a446, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+  - day: 4
+    specialChancePercent: 0
+    special: []
+    repeating:
+    - {fileID: 2962370791725550142, guid: 71a37079fbf1ac4478cc643cb8e9a446, type: 3}
+    - {fileID: 8080829889345230663, guid: 47d873648eb77db4daf2878afcdcc11f, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+  - day: 5
+    specialChancePercent: 0
+    special: []
+    repeating:
+    - {fileID: 2962370791725550142, guid: 71a37079fbf1ac4478cc643cb8e9a446, type: 3}
+    - {fileID: 8080829889345230663, guid: 47d873648eb77db4daf2878afcdcc11f, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}
+    - {fileID: 2090222599844063501, guid: 601613aa96a082c47a454151269bf756, type: 3}

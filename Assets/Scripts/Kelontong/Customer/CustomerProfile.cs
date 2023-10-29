@@ -31,14 +31,21 @@ namespace Kelontong.Customer
             HideText();
         }
 
+        private string GetDayPath(string path)
+        {
+            if (!path.Contains("{day}")) return path;
+            var day = GlobalEvents.Query<QueryDay>().day;
+            return path.Replace("{day}", day.ToString());
+        }
+
         public void StartDialogue()
         {
-            GlobalEvents.Fire(new StartStoryEvent(startDialoguePath));
+            GlobalEvents.Fire(new StartStoryEvent(GetDayPath(startDialoguePath)));
         }
 
         public void StartPresentProductDialogue()
         {
-            GlobalEvents.Fire(new StartStoryEvent(presentProductDialoguePath));
+            GlobalEvents.Fire(new StartStoryEvent(GetDayPath(presentProductDialoguePath)));
         }
 
         public Dictionary<string, float> GenerateProductRequest()
