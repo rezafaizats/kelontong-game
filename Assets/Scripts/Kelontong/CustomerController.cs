@@ -11,10 +11,8 @@ namespace Kelontong
 
         private Coroutine moveCoroutine = null;
 
-        private bool shouldBeDestroyed = false;
-        public void SetNextPoint(Vector3 nextPoint, float delay, bool destroy = false)
+        public void SetNextPoint(Vector3 nextPoint, float delay)
         {
-            shouldBeDestroyed = destroy;
             speed = Random.Range(0.05f, 0.3f);
             var randX = Random.Range(-0.8f, 0.8f);
             var randZ = Random.Range(-0.2f, 0.2f);
@@ -24,6 +22,11 @@ namespace Kelontong
             
             if (moveCoroutine != null) StopCoroutine(moveCoroutine);
             moveCoroutine = StartCoroutine(MoveToNextPoint(delay));
+        }
+
+        public void Leave(Vector3 point)
+        {
+            
         }
 
         private IEnumerator MoveToNextPoint(float delay)
@@ -44,8 +47,6 @@ namespace Kelontong
                 distanceCovered = (Time.time - startTime) * speed;
                 yield return null;
             }
-            
-            if (shouldBeDestroyed) Destroy(gameObject);
         }
     }
 }
