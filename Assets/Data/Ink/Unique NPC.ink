@@ -48,3 +48,40 @@ Thank you, very much you save me bro
 okay, i go another place
 ->END
 
+=== day3UniqueCustomer ===
+= mbahNgesi
+~currentName = "Mbah Ngesi"
+my son, grandma need <> #speaker {currentName}
+~GenerateProductRequest(2)
+~ requestText = "{formatProductAt(0)} and {formatProductAt(1)}"
+<> {requestText}. please bring it to me.
+->mbahNgesiResponse
+
+=mbahNgesiResponse
++Yes, wait a second mbah
+~StartSale()
+        ahhh i just remember, i need more.please add <> #speaker {currentName}
+    ~GenerateProductRequest(2)
+    ~ requestText = "{formatProductAt(2)} and {formatProductAt(3)}"
+    <> {requestText}. please bring it here too.
+    ++Alright, Please wait
+    ~StartSale()
+        am sorry just remember more, please bring me  <> #speaker {currentName}
+        ~GenerateProductRequest(1)
+        ~ requestText = "{formatProductAt(4)}"
+        <> {requestText}. This the last one.
+        +++Alright, Please wait
+        ~StartSale()
+        wait why am here? who are you?
+        ->END
+        
+        +++No, it just too many. take it or leave it
+        i go another place then, bad son. doesn't know how to respect elderly
+        ->END
+
+    ++No, i don't trust your memory
+    i go another place then, bad son. doesn't know how to respect elderly
+->END
++No, go away
+youngling these days doesn't know how to respect older people
+->END

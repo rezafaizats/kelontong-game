@@ -14,6 +14,9 @@ INCLUDE Endings.ink
 
 -> day1Customer.random
 -> day1UniqueCustomer.Asep
+-> day1UniqueCustomer.weirdPreacher
+-> day2Customer.random
+-> day2UniqueCustomer.Asep
 
 
 VAR requestText = ""
