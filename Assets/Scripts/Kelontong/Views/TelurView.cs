@@ -16,6 +16,8 @@ namespace Kelontong.Views
 
         [SerializeField] private List<Transform> eggSpawnPositions;
 
+        public override bool ActiveOnSpawn => false;
+
         public void DisplayWeight(float weight) {
             scaleText.text = weight.ToString("F0") + "g";
         }
@@ -26,7 +28,8 @@ namespace Kelontong.Views
                 if(totalEgg <= 0)
                     break;
 
-                Instantiate(eggPrefabs, item.position, Quaternion.identity);
+                var egg = Instantiate(eggPrefabs, item.position, Quaternion.identity);
+                egg.transform.parent = this.transform;
             }
         }
         public void Submit() {

@@ -14,6 +14,8 @@ namespace Kelontong.Views
         [SerializeField] private Button clearButton;
         [SerializeField] private TextMeshProUGUI weightText;
 
+        public override bool ActiveOnSpawn => false;
+
         private void Awake()
         {
             submitButton.onClick.AddListener(SubmitRiceAmount);

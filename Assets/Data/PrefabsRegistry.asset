@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - id: player
-    prefab: {fileID: 4804246142154852087, guid: 01d0055bd18ff494ea482adcd9ad9f31, type: 3}
+    prefab: {fileID: 7907748630859896082, guid: 67ca89e61ef886a4eaa75b0700c39eff, type: 3}
   - id: customer
     prefab: {fileID: 7575028655838152925, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}
   - id: Camera
     prefab: {fileID: 5169346824123639519, guid: b86fabd83b9b7014c86a3996a11099a6, type: 3}
+  - id: World
+    prefab: {fileID: 8037080754246940550, guid: 3a8047e4ea7d9ea4ebe602da657f4a7e, type: 3}

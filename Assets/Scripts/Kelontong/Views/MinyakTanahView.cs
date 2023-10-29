@@ -17,6 +17,8 @@ namespace Kelontong.Views
         [SerializeField] private MinyakMinigameButton fillButton;
         [SerializeField] private Button submitButton;
 
+        public override bool ActiveOnSpawn => false;
+
         public void FillBeaker(float fillRate) {
             Debug.Log("Filling oil at " + fillRate);
             oilImage.fillAmount = fillRate;

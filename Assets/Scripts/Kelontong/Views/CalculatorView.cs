@@ -13,6 +13,7 @@ namespace Kelontong.Views
         [SerializeField] private TextMeshProUGUI calculatorText;
         [SerializeField] private Button submitButton;
 
+        public override bool ActiveOnSpawn => false;
 
         private void Awake()
         {
