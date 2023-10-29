@@ -1,6 +1,6 @@
 === day2Customer ===
 = random
-{Hello, I want |Hey, I need |Hi, I would like |Hey, can I get } <> #speaker {currentName}
+{Greetings, I demand |Hey, I urgently need |Salutations, I must acquire |Hello, I am in dire need of } <> #speaker {currentName}
 -> randomProducts
 = randomProducts
 ~ temp rand = RANDOM(0, 100)
@@ -26,25 +26,25 @@
 ~ temp rand = RANDOM(0, 100)
 {rand < 40: ->randomRenegotiate}
 
-{Oh well, to the next store...|That sucks...||Aw man...} #speaker {currentName}
+{Oh well, on to the next store...|Well, that's unfortunate...||Aw man, the struggle is real.} #speaker {currentName}
 ~ RejectSale()
 ~ ResetProductRequest()
 -> END
 
 = randomRenegotiate
 
-{Ok, how about|Alright then, but can I get|Ok, but what about} #speaker {currentName}
+{Fine, how about|Alright then, but can I get|Okay, but what about} #speaker {currentName}
 <> -> randomProducts
 
 = response
-+ [Sure] {Ok give me a moment|Sure thing|Alright} #speaker You
++ [Certainly] {Okay, give me a moment|Certainly, I'll attend to that|Alright} #speaker You
     ~ StartSale()
     -> END
-+ [Sorry, Out of Stock] Sorry, we're out of stock for that, and it's not getting any cheaper.
++ [Apologies, Out of Stock] Apologies, we're out of stock for that, and the prices are soaring.
     -> randomRejectedResponse
 
 = presentProduct
-Ok, that'll be {GetPrice()} Rupiah. Ridiculous, right?
+Alright, that will be {GetPrice()} Rupiah. Absurd, isn't it?
 ~ temp rand = RANDOM(0, 100)
 {
     - rand < 10: -> nevermind
@@ -56,7 +56,7 @@ Ok, that'll be {GetPrice()} Rupiah. Ridiculous, right?
 {On second thought, I'd like to add |Actually, I also need more. Can you throw in an extra |Wait, can you add } <>
 -> randomProducts
 = nevermind
-{Actually, nevermind, sorry. I forgot my wallet at home |Wait, I need to go. Please cancel my orders.}
+{Nevermind, actually. My apologies, but I forgot my wallet at home |Wait, I need to go. Please cancel my orders.}
 ~ RejectSale()
 ~ ResetProductRequest()
 -> END
