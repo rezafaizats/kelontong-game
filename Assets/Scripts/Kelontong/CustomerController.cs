@@ -27,7 +27,12 @@ namespace Kelontong
 
         public void Leave(Vector3 point)
         {
-            
+            Debug.Log("LEAVING", gameObject);
+            speed = Random.Range(1f, 2f);
+            target = point;
+
+            if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+            StartCoroutine(LeaveCoroutine());
         }
 
         private IEnumerator MoveToNextPoint(float delay)
@@ -52,22 +57,23 @@ namespace Kelontong
         
         private IEnumerator LeaveCoroutine()
         {
-            Vector3 startPoint = transform.position;
-            float journeyLength = Vector3.Distance(startPoint, target);
+            var startPos = transform.position;
+            float journeyLength = Vector3.Distance(startPos, target);
             float startTime = Time.time;
 
             float distanceCovered = 0;
             while (distanceCovered < journeyLength)
             {
-                float fractionOfJourney = distanceCovered / journeyLength;
-            
-                Vector3 nextPosition = Vector3.Lerp(startPoint, target, fractionOfJourney);
-            
-                // Adjust the Y position based on the arcCurve
-                nextPosition.y += arcCurve.Evaluate(fractionOfJourney) * journeyLength;
+                float fractionOfJourney = (Time.time - startTime) * speed / journeyLength;
+                float smoothStepValue = Mathf.SmoothStep(0, 1, fractionOfJourney);
 
-                transform.position = nextPosition;
-            
+                var targetPos = Vector3.Lerp(startPos, target, smoothStepValue);
+
+                targetPos.x = Mathf.Lerp(startPos.x, target.x, arcCurve.Evaluate(smoothStepValue));
+
+                transform.position = targetPos;
+                Debug.Log($"SmoothStepVal: {smoothStepValue}, target {target}, current pos {targetPos}, start pos {startPos}");
+                
                 distanceCovered = (Time.time - startTime) * speed;
                 yield return null;
             }

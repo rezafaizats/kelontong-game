@@ -48,9 +48,8 @@ namespace Kelontong.Modules
             if (queue.Count <= 0) return;
             var controller = queue.Dequeue();
             var point = spawnPoint;
-            point.x = Random.Range(-8f, 8f);
-            point.y /= 2f;
-            controller.SetNextPoint(point, 0f);
+            point.x = Random.Range(0, 2) > 0 ? -6f : 6f;
+            controller.Leave(point);
 
             int index = 0;
             foreach (var q in queue)
