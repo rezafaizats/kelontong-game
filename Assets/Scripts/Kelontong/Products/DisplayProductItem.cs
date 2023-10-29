@@ -7,6 +7,6 @@ namespace Kelontong.World
     public class DisplayProductItem
     {
         public string productID;
-        public GameObject product;
+        public SpriteRenderer product;
     }
 }

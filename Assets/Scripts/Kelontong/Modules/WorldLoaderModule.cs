@@ -9,20 +9,20 @@ using UnityEngine;
 
 namespace Kelontong.Modules
 {
-    public class WorldLoaderModule : BaseModule, IEventListener<AddProductToPlayerEvent>
+    public class WorldLoaderModule : BaseModule, IQueryProvider<QueryPresentedProductResult>
     {
         private World.World world;
+
+        public QueryPresentedProductResult OnQuery()
+        {
+            return new QueryPresentedProductResult(world.GetPresentedProducts());
+        }
 
         protected override Task OnLoad()
         {
             var worldPrefab = PrefabRegistry.Get("World");
             world = Object.Instantiate(worldPrefab).GetComponent<World.World>();
             return base.OnLoad();
-        }
-
-        void IEventListener<AddProductToPlayerEvent>.OnEvent(AddProductToPlayerEvent data)
-        {
-            world.DisplayProduct(data.productID, data.productQuantity);
         }
     }
 }

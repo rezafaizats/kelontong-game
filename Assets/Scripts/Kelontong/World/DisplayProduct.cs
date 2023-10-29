@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Arr.EventsSystem;
 using Arr.ModulesSystem;
 using Kelontong.Events;
@@ -13,10 +14,7 @@ namespace Kelontong.World
     {
         private Dictionary<string, float> products = new Dictionary<string, float>();
         public TextMeshPro interactText;
-
-        public List<DisplayProductItem> displayProductItems = new List<DisplayProductItem>();
-        public List<Transform> productPlacementSpawn;
-        public Vector2 randomZPlacementOffset;
+        public List<DisplayProductElement> productPlacement;
 
         void Start() {
             HideText();
@@ -24,17 +22,21 @@ namespace Kelontong.World
 
         public void AddProductToDisplay(string id, float quantity) {
             products.Add(id, quantity);
-            foreach (var item in displayProductItems)
-            {
-                if(id == item.productID) {
-                    var randomPlacement = Random.Range(0, productPlacementSpawn.Count);
-                    var placement = productPlacementSpawn[randomPlacement].position;
-                    placement.z = Random.Range(randomZPlacementOffset.x, randomZPlacementOffset.y);
+            var displayItem = productPlacement.First(x => !x.gameObject.activeInHierarchy);
+            displayItem.gameObject.SetActive(true);
+            displayItem.DisplayItem(id);
+        }
 
-                    var displayItem = Instantiate(item.product, placement, Quaternion.identity);
-                    displayItem.transform.parent = this.transform;
-                }
+        public void ClearPresentedProduct() {
+            foreach (var item in productPlacement)
+            {
+                item.gameObject.SetActive(false);
             }
+            products.Clear();
+        }
+
+        public Dictionary<string, float> GetPresentedProduct() {
+            return products;
         }
 
         public void DisplayText()
@@ -51,8 +53,11 @@ namespace Kelontong.World
 
         public void Interact()
         {
-            if(products == null || products.Count < 0) return;
-            //Do transaction
+            var queryResult = GlobalEvents.Query<QueryProductInPlayerResult>();
+            if(string.IsNullOrEmpty(queryResult.productID)) return;
+
+            AddProductToDisplay(queryResult.productID, queryResult.productQuantity);
+            GlobalEvents.Fire(new ClearProductFromPlayerEvent());
         }
     }
 }

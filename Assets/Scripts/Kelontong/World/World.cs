@@ -52,6 +52,14 @@ namespace Kelontong.World
             displayProduct.AddProductToDisplay(id, quantity);
         }
 
+        public void ClearPresentedProduct() {
+            displayProduct.ClearPresentedProduct();
+        }
+
+        public Dictionary<string, float> GetPresentedProducts() {
+            return displayProduct.GetPresentedProduct();
+        }
+
 
     }
 
