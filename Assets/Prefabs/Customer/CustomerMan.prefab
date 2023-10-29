@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2346303859100966162, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 072c416e08c4d4f48ab27445fa1c9c63, type: 2}
     - target: {fileID: 3877901256225947440, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575028655838152925, guid: 641d2b75b2228a945999dfd103c2b55c, type: 3}
       propertyPath: m_Name
-      value: Customer
+      value: CustomerMan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
