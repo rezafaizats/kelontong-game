@@ -27,7 +27,8 @@ namespace Kelontong.Modules
             new InkModule(),
             new DayOfTimeModule(),
             new ShopInventoryModule(),
-            new FadeViewModule(),
+            new FadeViewModule(),            
+            new CameraControlModule(),
             new BGMModule()
         };
         
@@ -40,7 +41,6 @@ namespace Kelontong.Modules
         {
             new ShopInventoryViewModule(),
             new WorldLoaderModule(),
-            new CameraControlModule(),
             new CustomerQueueModule(),
             new CustomerTransactionModule(),
             new PlayerInventoryModule(),
@@ -82,11 +82,11 @@ namespace Kelontong.Modules
                 View.Close<IntroView>();
 
                 FadeViewModule.FadeOut(0.5f);
+                await Task.Delay(500);
 
                 await introHandler.Stop();
                 endDay = new();
                 
-                await Task.Delay(500);
                 await gameHandler.Start();
                 FadeViewModule.FadeIn(4f);
                 GlobalEvents.Fire(new StartDayEvent());

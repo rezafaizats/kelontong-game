@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6136977922452696865}
-  - component: {fileID: 2831174000801908092}
   - component: {fileID: 2346303859100966162}
   - component: {fileID: 686984153713722877}
   m_Layer: 0
@@ -117,19 +116,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2019545108876472219}
   m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
---- !u!114 &2831174000801908092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4938433365962969831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1127c46cb59146258c2f85b31354e402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 2346303859100966162}
 --- !u!95 &2346303859100966162
 Animator:
   serializedVersion: 5
@@ -140,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 4938433365962969831}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebcac9c457a1fec4ba848c23db97538e, type: 2}
+  m_Controller: {fileID: 22100000, guid: 9eeeeb5c8ae9a4f4b985fb727c30a9ce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -355,6 +341,7 @@ GameObject:
   - component: {fileID: 2753287156528685964}
   - component: {fileID: 234496188644063815}
   - component: {fileID: 5562071105909820739}
+  - component: {fileID: 3092953374006909319}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -460,6 +447,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 4, z: 3}
   m_Center: {x: 0, y: 3, z: 3}
+--- !u!114 &3092953374006909319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575028655838152925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c28bdc6d874480adb3384414b00d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2753287156528685964}
+  animator: {fileID: 2346303859100966162}
 --- !u!1 &8023848725960386870
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +642,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2019545108876472219}
   - component: {fileID: 4241161764186916680}
-  - component: {fileID: 8606543594844890861}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -690,20 +690,6 @@ CapsuleCollider:
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: -0.31397247, z: 0}
---- !u!114 &8606543594844890861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8334073656225497501}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdbd62fc6e80416ba1b856a1f2cab27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovementSpeed: 5
-  playerRigidBody: {fileID: 0}
 --- !u!1 &8869954368512452545
 GameObject:
   m_ObjectHideFlags: 0
